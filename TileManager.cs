@@ -1,0 +1,162 @@
+﻿using System;
+using System.Collections.Generic;
+using SwinGameSDK;
+
+namespace MyGame
+{
+    public class TileManager
+    {
+        private TileType _placingType;
+        private Tile _holding;
+        private Tileset _tileset;
+        private Bitmap[] _bitmaps;
+        private int _activeBmp;
+        private int _totalBmps;
+
+        public TileManager()
+        {
+            _placingType = TileType.Normal;
+            _bitmaps = GameResources.GetBitmapListNamed("DungeonTileset");
+            _activeBmp = 0;
+            _totalBmps = _bitmaps.Length - 1;
+            _holding = new Tile(ScreenAnchor.Instance);
+            _holding.IsWall = true;
+        }
+
+        public Tile Holding
+        {
+            get {return _holding;}
+            set {_holding = value;}
+        }
+
+        public Tileset Tileset
+        {
+            get {return _tileset;}
+            set {_tileset= value;}
+        }
+
+        public void PlaceTo(Tileset tileset, Point2D pos)
+        {
+            Tile newTile;
+
+            switch (_placingType)
+            {
+                case TileType.Normal:
+                {
+                    newTile = new Tile(tileset);
+                    newTile.IsWall = true;
+                    break;
+                }
+
+                case TileType.SpeedUp:
+                {
+                    newTile = new SpeedTile(2, tileset);
+                    newTile.IsWall = false;
+                    break;
+                }
+
+                case TileType.SpeedDown:
+                {
+                    newTile = new SpeedTile(-2, tileset);
+                    newTile.IsWall = false;
+                    break;
+                }
+
+                default:
+                {
+                    newTile = new Tile(tileset);
+                    newTile.IsWall = true;
+                    break;
+                }
+            }
+            tileset.TileAt(pos).Deregister();
+            newTile.Pos = tileset.TileAt(pos).Pos;
+            newTile.Img = _bitmaps[_activeBmp];
+            newTile.RootBitmap = "DungeonTileset";
+            newTile.RootIndex = _activeBmp;
+
+            tileset.ReplaceTileAt(pos, newTile);
+            tileset.Deregister();
+            tileset.Register();
+        }
+
+        public void Remove(Tileset tileset, Point2D pos)
+        {
+            tileset.TileAt(pos).Deregister();
+
+            Tile newTile = new Tile();
+            newTile.Pos = tileset.TileAt(pos).Pos;
+            newTile.IsWall = false;
+            newTile.Img = null;
+            newTile.RootBitmap = "nullBmp";
+            newTile.RootIndex = 0;
+
+            tileset.ReplaceTileAt(pos, newTile);
+            tileset.Deregister();
+            tileset.Register();
+        }
+
+        public void HandleInput()
+        {
+            if (SwinGame.KeyTyped(KeyCode.SKey))
+            {
+                _placingType++;
+
+                if ((int)_placingType > 2)
+                {
+                    _placingType = 0;
+                }
+            }
+
+            if (SwinGame.MouseDown(MouseButton.LeftButton))
+            {
+                if (Tileset.IsAt(SwinGame.MousePosition()))
+                {
+                    PlaceTo(Tileset, SwinGame.MousePosition());
+                }
+            }
+
+            if (SwinGame.MouseDown(MouseButton.RightButton))
+            {
+                if (Tileset.IsAt(SwinGame.MousePosition()))
+                {
+                    Remove(Tileset, SwinGame.MousePosition());
+                }
+            }
+
+            if (SwinGame.KeyTyped(KeyCode.RightKey))
+            {
+                if (_activeBmp < _totalBmps)
+                {
+                    _activeBmp++;
+                }
+                else
+                {
+                    _activeBmp = 0;
+                }
+            }
+
+            if (SwinGame.KeyTyped(KeyCode.LeftKey))
+            {
+                if (_activeBmp > 0)
+                {
+                    _activeBmp--;
+                }
+                else
+                {
+                    _activeBmp = _totalBmps;
+                }
+            }
+        }
+
+        public void Render()
+        {
+            SwinGame.DrawBitmap(_bitmaps[_activeBmp], SwinGame.MouseX(), SwinGame.MouseY());
+
+            SwinGame.DrawText("Currently Placing: ", Color.Black, 10, 10);
+            SwinGame.DrawText(_placingType.ToString(), Color.Black, 175, 10);
+
+            SwinGame.DrawText("(S) Toggle Tile Type", Color.Black, 10, 25);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+﻿<Properties StartupItem="MyGameWin.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug-Windows|x86" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="UnitTests\PatrolUnitTests.cs">
+    <Files>
+      <File FileName="LevelEditor.cs" Line="203" Column="45" />
+      <File FileName="EnemyType.cs" Line="9" Column="6" />
+      <File FileName="EnemyManager.cs" Line="71" Column="36" />
+      <File FileName="Tileset.cs" Line="46" Column="9" />
+      <File FileName="Patroller.cs" Line="18" Column="10" />
+      <File FileName="Wanderer.cs" Line="51" Column="17" />
+      <File FileName="WallFollower.cs" Line="79" Column="27" />
+      <File FileName="Enemy.cs" Line="49" Column="1" />
+      <File FileName="Entity.cs" Line="111" Column="15" />
+      <File FileName="TileManager.cs" Line="100" Column="10" />
+      <File FileName="LevelIO.cs" Line="235" Column="66" />
+      <File FileName="TileInteractor.cs" Line="24" Column="1" />
+      <File FileName="Level.cs" Line="34" Column="4" />
+      <File FileName="UnitTests\PatrolUnitTests.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.MyGameWin PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
