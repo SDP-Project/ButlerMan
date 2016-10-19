@@ -37,6 +37,7 @@
   <ItemGroup>
     <Folder Include="src\" />
     <Folder Include="Resources\" />
+    <Folder Include="UnitTests\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\GameMain.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="TileManager.cs" />
     <Compile Include="EnemyType.cs" />
     <Compile Include="Patroller.cs" />
-    <Compile Include="Testing.cs" />
+    <Compile Include="UnitTests\RenderableUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
