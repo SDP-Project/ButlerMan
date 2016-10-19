@@ -13,12 +13,12 @@ namespace UnitTests
         //WorldAnchor world = new WorldAnchor();
         //ScreenAnchor screen = new ScreenAnchor();
 
-        /*[SetUp]
+        [SetUp]
         public void Init()
         {
-            SwinGame.OpenGraphicsWindow("Renderable Tests", 800, 600);
-            WorldAnchor.Instance.Pos = SwinGame.PointAt(0, 0);
-        }*/
+            OpenGraphicsWindow("Renderable Tests", 800, 600);
+            //WorldAnchor.Instance.Pos = PointAt(0, 0);
+        }
 
         [Test]
         public void TestNumbers()
