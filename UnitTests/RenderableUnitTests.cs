@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using SwinGameSDK;
+using static SwinGameSDK.SwinGame;
 using MyGame;
 
 namespace UnitTests
@@ -30,8 +31,8 @@ namespace UnitTests
         [Test]
         public void TestPoint2D()
         {
-            Point2D first = SwinGame.PointAt(50, 50);
-            Point2D second = SwinGame.PointAt(50, 50);
+            Point2D first = PointAt(50, 50);
+            Point2D second = PointAt(50, 50);
             Assert.AreEqual(first.X, second.X);
         }
 
