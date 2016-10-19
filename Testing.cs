@@ -16,10 +16,10 @@ namespace UnitTests
         [Test]
         public void TestNumbers()
         {
-            Point2D first = SwinGame.PointAt(10, 10);
-            Point2D second = SwinGame.PointAt(10, 10);
+            int x = 5;
+            int y = 5;
 
-            Assert.AreEqual(first.X, second.X);
+            Assert.AreEqual(x, y);
         }
     }
 }
