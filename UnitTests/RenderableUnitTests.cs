@@ -20,6 +20,13 @@ namespace UnitTests
         }
 
         [Test]
+        public void TestColour()
+        {
+            Color color = Color.Black;
+            Assert.AreEqual(Color.Black, color);
+        }
+
+        [Test]
         public void TestScreenSingleton()
         {
             TestDelegate makeTwoScreens = new TestDelegate(() => new WorldAnchor());
