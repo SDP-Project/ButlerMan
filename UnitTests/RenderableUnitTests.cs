@@ -9,6 +9,8 @@ namespace UnitTests
     [TestFixture]
     public class RenderableUnitTests
     {
+        int x;
+        int y;
         // r;
         //WorldAnchor world = new WorldAnchor();
         //ScreenAnchor screen = new ScreenAnchor();
@@ -16,16 +18,16 @@ namespace UnitTests
         [SetUp]
         public void Init()
         {
-            OpenGraphicsWindow("Renderable Tests", 800, 600);
+            x = 5;
+            y = 5;
+            //OpenGraphicsWindow("Renderable Tests", 800, 600);
             //WorldAnchor.Instance.Pos = PointAt(0, 0);
         }
 
         [Test]
         public void TestNumbers()
         {
-            int x = 5;
-            int y = 5;
-            Assert.AreEqual(x, 5);
+            Assert.AreEqual(x, y);
         }
 
         [Test]
