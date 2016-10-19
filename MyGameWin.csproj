@@ -49,7 +49,6 @@
     <Compile Include="Enemy.cs" />
     <Compile Include="Wanderer.cs" />
     <Compile Include="Templates\UnitTestTemplate.cs" />
-    <Compile Include="Unit Tests\WandererUnitTests.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="BitmapRenderable.cs" />
@@ -61,23 +60,18 @@
     <Compile Include="EnemyManager.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="SpeedTile.cs" />
-    <Compile Include="UnitTests\RenderableUnitTests.cs" />
-    <Compile Include="UnitTests\RendererUnitTests.cs" />
-    <Compile Include="UnitTests\WandererUnitTests.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="GameResources.cs" />
     <Compile Include="LevelIO.cs" />
     <Compile Include="GameLogic.cs" />
-    <Compile Include="UnitTests\LevelIOUnitTests.cs" />
     <Compile Include="TileType.cs" />
-    <Compile Include="UnitTests\SpeedTileUnitTests.cs" />
     <Compile Include="WallFollower.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="TileManager.cs" />
     <Compile Include="EnemyType.cs" />
-    <Compile Include="UnitTests\PatrolUnitTests.cs" />
     <Compile Include="Patroller.cs" />
+    <Compile Include="Testing.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
@@ -85,12 +79,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="nunit.framework">
-      <HintPath>packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
+      <HintPath>packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <WinLibs Include="lib\win32\*.dll" />
-    <None Include="packages.config" />
     <None Include="Resources\images\Dungeon Tileset.png" />
     <None Include="Resources\bundles\GameResources.txt" />
     <None Include="Resources\animations\minotauranimations.txt">
@@ -219,6 +212,7 @@
     <None Include="Resources\Level2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Target Name="CopyLibsToOut">
     <Copy SourceFiles="@(WinLibs)" DestinationFolder="$(OutDir)" />

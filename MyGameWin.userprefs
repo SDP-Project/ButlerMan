@@ -4,23 +4,34 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="UnitTests\PatrolUnitTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UnitTestsProject\RenderableUnitTests.cs">
     <Files>
-      <File FileName="LevelEditor.cs" Line="203" Column="45" />
-      <File FileName="EnemyType.cs" Line="9" Column="6" />
-      <File FileName="EnemyManager.cs" Line="71" Column="36" />
-      <File FileName="Tileset.cs" Line="46" Column="9" />
-      <File FileName="Patroller.cs" Line="18" Column="10" />
-      <File FileName="Wanderer.cs" Line="51" Column="17" />
-      <File FileName="WallFollower.cs" Line="79" Column="27" />
-      <File FileName="Enemy.cs" Line="49" Column="1" />
-      <File FileName="Entity.cs" Line="111" Column="15" />
-      <File FileName="TileManager.cs" Line="100" Column="10" />
-      <File FileName="LevelIO.cs" Line="235" Column="66" />
-      <File FileName="TileInteractor.cs" Line="24" Column="1" />
-      <File FileName="Level.cs" Line="34" Column="4" />
-      <File FileName="UnitTests\PatrolUnitTests.cs" Line="1" Column="1" />
+      <File FileName="UnitTestsProject\RenderableUnitTests.cs" Line="16" Column="27" />
+      <File FileName="UnitTestsProject\SpeedBoostTileUnitTests.cs" Line="43" Column="4" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MyGameWin" expanded="True">
+            <Node name="MyGameWin" expanded="True">
+              <Node name="References" expanded="True" />
+            </Node>
+            <Node name="UnitTestsProject" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="lib" expanded="True" />
+              <Node name="RenderableUnitTests.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="MyGameWin" expanded="True">
+            <Node name="UnitTestsProject" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.MyGameWin PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
