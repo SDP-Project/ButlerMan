@@ -31,6 +31,15 @@ namespace UnitTests
         }
 
         [Test]
+        public void TestOtherNumbers()
+        {
+            int five = 5;
+            int ten = 10;
+
+            Assert.AreNotEqual(five, ten);
+        }
+
+        [Test]
         public void TestPoint2D()
         {
             Point2D first = PointAt(50, 50);
