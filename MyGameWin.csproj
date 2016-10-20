@@ -73,6 +73,11 @@
     <Compile Include="EnemyType.cs" />
     <Compile Include="Patroller.cs" />
     <Compile Include="UnitTests\RenderableUnitTests.cs" />
+    <Compile Include="UnitTests\RendererUnitTests.cs" />
+    <Compile Include="UnitTests\PatrolUnitTests.cs" />
+    <Compile Include="UnitTests\SpeedBoostTileUnitTests.cs" />
+    <Compile Include="UnitTests\SpeedTileUnitTests.cs" />
+    <Compile Include="UnitTests\WandererUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
