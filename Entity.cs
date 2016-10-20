@@ -22,8 +22,8 @@ namespace MyGame
 			_width = 32;
 			_height = 32;
 			
-			Img = SwinGame.CreateBitmap(32, 32);
-			SwinGame.ClearSurface(Img, Color.Green);
+			//Img = SwinGame.CreateBitmap(32, 32);
+			//SwinGame.ClearSurface(Img, Color.Green);
 		}
 
 		public float Speed
