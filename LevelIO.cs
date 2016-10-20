@@ -48,7 +48,7 @@ namespace MyGame
             int y = Utils.ReadInteger(reader);
 
             Tileset result = new Tileset(WorldAnchor.Instance);
-            result.Pos = SwinGame.PointAt(x, y);
+            result.Pos = new Position(x, y);
 
             int cols = Utils.ReadInteger(reader);;
             int rows = Utils.ReadInteger(reader);
@@ -94,7 +94,7 @@ namespace MyGame
             int x = Utils.ReadInteger(reader);
             int y = Utils.ReadInteger(reader);
 
-            result.Pos = SwinGame.PointAt(x, y);
+            result.Pos = new Position(x, y);
 
             string rootBitmap = reader.ReadLine();
             int rootIndex = Utils.ReadInteger(reader);
@@ -147,7 +147,7 @@ namespace MyGame
             int atX = Utils.ReadInteger(reader);
             int atY = Utils.ReadInteger(reader);
 
-            newEntity.Pos = SwinGame.PointAt(atX, atY);
+            newEntity.Pos = new Position(atX, atY);
 
             if (entityType == "MyGame.Patroller")
             {
@@ -251,7 +251,7 @@ namespace MyGame
             //Don't save first one in list because it's the tile the AI is on and will be loaded automatically
             for (int i = 1; i < pat.Path.Count; i++)
             {
-                Point2D tileIndex = tileset.GetTileIndexFromPt(SwinGame.PointAt(pat.Path[i].Pos.X + 1, pat.Path[i].Pos.Y + 1));
+                Position tileIndex = tileset.GetTileIndexFromPt(new Position(pat.Path[i].Pos.X + 1, pat.Path[i].Pos.Y + 1));
                 writer.WriteLine(tileIndex.X); //Column
                 writer.WriteLine(tileIndex.Y); //Row
             }

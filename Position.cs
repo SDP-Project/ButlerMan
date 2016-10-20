@@ -46,5 +46,18 @@ namespace MyGame
                 _y = value.Item2;
             }
         }
+
+        public Position Add(Position pos)
+        {
+            _x += pos.X;
+            _y += pos.Y;
+
+            return this;
+        }
+
+        public Position CheckAdd(Position pos)
+        {
+            return new Position(_x + pos.X, _y + pos.Y);
+        }
     }
 }

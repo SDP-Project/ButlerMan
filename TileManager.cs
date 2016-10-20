@@ -35,7 +35,7 @@ namespace MyGame
             set {_tileset= value;}
         }
 
-        public void PlaceTo(Tileset tileset, Point2D pos)
+        public void PlaceTo(Tileset tileset, Position pos)
         {
             Tile newTile;
 
@@ -80,7 +80,7 @@ namespace MyGame
             tileset.Register();
         }
 
-        public void Remove(Tileset tileset, Point2D pos)
+        public void Remove(Tileset tileset, Position pos)
         {
             tileset.TileAt(pos).Deregister();
 
@@ -110,17 +110,17 @@ namespace MyGame
 
             if (SwinGame.MouseDown(MouseButton.LeftButton))
             {
-                if (Tileset.IsAt(SwinGame.MousePosition()))
+                if (Tileset.IsAt(new Position(SwinGame.MouseX(), SwinGame.MouseY())))
                 {
-                    PlaceTo(Tileset, SwinGame.MousePosition());
+                    PlaceTo(Tileset, new Position(SwinGame.MouseX(), SwinGame.MouseY()));
                 }
             }
 
             if (SwinGame.MouseDown(MouseButton.RightButton))
             {
-                if (Tileset.IsAt(SwinGame.MousePosition()))
+                if (Tileset.IsAt(new Position(SwinGame.MouseX(), SwinGame.MouseY())))
                 {
-                    Remove(Tileset, SwinGame.MousePosition());
+                    Remove(Tileset, new Position(SwinGame.MouseX(), SwinGame.MouseY()));
                 }
             }
 

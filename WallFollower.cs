@@ -148,7 +148,7 @@ namespace MyGame
         {
             _wallSide = Direction.Null;
 
-            Point2D tileIndex = TileInteractor.GetTileIndexFromPt(AbsPos);
+            Position tileIndex = TileInteractor.GetTileIndexFromPt(AbsPos);
             int col = (int)tileIndex.X;
             int row = (int)tileIndex.Y;
 

@@ -11,7 +11,7 @@ namespace MyGame
         {
             if (_instance == null)
             {
-                Pos = SwinGame.PointAt(0, 0);
+                Pos = new Position(0, 0);
                 _instance = this;
                 Anchor = this;
             }
@@ -29,7 +29,7 @@ namespace MyGame
             }
         }
 
-        public override Point2D AbsPos
+        public override Position AbsPos
         {
             get
             {

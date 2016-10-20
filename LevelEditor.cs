@@ -71,11 +71,11 @@ namespace MyGame
             {
                 Point2D mousePos = SwinGame.MousePosition();
 
-                if (Level.Tileset.IsAt(mousePos))
+                if (Level.Tileset.IsAt(new Position(mousePos.X, mousePos.Y)))
                 {
-                    if (Level.HasEntityAt(mousePos))
+                    if (Level.HasEntityAt(new Position(mousePos.X, mousePos.Y)))
                     {
-                        Entity toRemove = Level.EntityAt(mousePos);
+                        Entity toRemove = Level.EntityAt(new Position(mousePos.X, mousePos.Y));
                         Level.Entities.Remove(toRemove);
 
                         if (toRemove.GetType() == typeof(Patroller))
@@ -94,22 +94,22 @@ namespace MyGame
             /// </summary>
             if (SwinGame.KeyDown(KeyCode.LeftKey))
             {
-                WorldAnchor.Instance.Pos = SwinGame.AddVectors(WorldAnchor.Instance.Pos, SwinGame.PointAt(1, 0));
+                WorldAnchor.Instance.Pos.X += 1;
             }
 
             if (SwinGame.KeyDown(KeyCode.RightKey))
             {
-                WorldAnchor.Instance.Pos = SwinGame.AddVectors(WorldAnchor.Instance.Pos, SwinGame.PointAt(-1, 0));
+                WorldAnchor.Instance.Pos.X -= 1;
             }
 
             if (SwinGame.KeyDown(KeyCode.UpKey))
             {
-                WorldAnchor.Instance.Pos = SwinGame.AddVectors(WorldAnchor.Instance.Pos, SwinGame.PointAt(0, 1));
+                WorldAnchor.Instance.Pos.Y += 1;
             }
 
             if (SwinGame.KeyDown(KeyCode.DownKey))
             {
-                WorldAnchor.Instance.Pos = SwinGame.AddVectors(WorldAnchor.Instance.Pos, SwinGame.PointAt(0, -1));
+                WorldAnchor.Instance.Pos.Y -= 1;
             }
             /// <summary>
             /// End Move Camera

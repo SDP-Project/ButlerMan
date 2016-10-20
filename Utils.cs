@@ -38,7 +38,7 @@ namespace MyGame
 
         public static int ReadInteger(StreamReader reader)
         {
-            return Convert.ToInt32(reader.ReadLine());
+             return Convert.ToInt32(reader.ReadLine());
         }
     }
 }

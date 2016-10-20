@@ -6,21 +6,21 @@ namespace MyGame
     public class Renderable
     {
         private Renderable _anchor; //Renderables are drawn relative to the position of their anchor
-        private Point2D _pos;
+        private Position _pos;
 
-        public Renderable() : this (WorldAnchor.Instance, new Point2D())
+        public Renderable() : this (WorldAnchor.Instance, new Position(0, 0))
         {
         }
 
-        public Renderable (Renderable anchor) : this (anchor, new Point2D())
+        public Renderable (Renderable anchor) : this (anchor, new Position(0, 0))
         {
         }
 
-        public Renderable(Point2D pos) : this (WorldAnchor.Instance, pos)
+        public Renderable(Position pos) : this (WorldAnchor.Instance, pos)
         {
         }
 
-        public Renderable(Renderable anchor, Point2D pos)
+        public Renderable(Renderable anchor, Position pos)
         {
             Anchor = anchor;
             Pos = pos;
@@ -43,13 +43,13 @@ namespace MyGame
             set {_anchor = value;}
         }
 
-        public Point2D Pos
+        public Position Pos
         {
             get {return _pos;}
             set {_pos = value;}
         }
 
-        public virtual Point2D AbsPos
+        public virtual Position AbsPos
         {
             get
             {
@@ -57,7 +57,7 @@ namespace MyGame
                 if (Anchor.Anchor == this)
                     return Pos;
 
-                return SwinGame.AddVectors(Pos, Anchor.AbsPos);
+                return Pos.CheckAdd(Anchor.AbsPos);
             }
         }
 

@@ -32,11 +32,11 @@ namespace MyGame
             _entities.Add(toAdd);
         }
 			
-        public Entity EntityAt(Point2D pt)
+        public Entity EntityAt(Position pt)
         {
             foreach (Entity e in Entities)
             {
-                if (SwinGame.PointInRect(pt, SwinGame.CreateRectangle(e.AbsPos.X, e.AbsPos.Y, e.Width, e.Height)))
+                if (SwinGame.PointInRect(SwinGame.PointAt(pt.X, pt.Y), SwinGame.CreateRectangle(e.AbsPos.X, e.AbsPos.Y, e.Width, e.Height)))
                 {
                     e.Deregister();
                     return e;
@@ -45,11 +45,11 @@ namespace MyGame
             return null;
         }
 
-        public bool HasEntityAt(Point2D pt)
+        public bool HasEntityAt(Position pt)
         {
             foreach (Entity e in Entities)
             {
-                if (SwinGame.PointInRect(pt, SwinGame.CreateRectangle(e.AbsPos.X, e.AbsPos.Y, e.Width, e.Height)))
+                if (SwinGame.PointInRect(SwinGame.PointAt(pt.X, pt.Y), SwinGame.CreateRectangle(e.AbsPos.X, e.AbsPos.Y, e.Width, e.Height)))
                 {
                     return true;
                 }

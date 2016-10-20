@@ -34,7 +34,7 @@ namespace MyGame
 
             if (SwinGame.MouseClicked(MouseButton.LeftButton))
             {
-                if (Level.Tileset.IsAt(mousePos) && !Level.HasEntityAt(mousePos))
+                if (Level.Tileset.IsAt(new Position(mousePos.X, mousePos.Y)) && !Level.HasEntityAt(new Position(mousePos.X, mousePos.Y)))
                 {
                     Entity toAdd;
                     switch (_placingType)
@@ -65,14 +65,14 @@ namespace MyGame
                         }
                     }
                    
-                    toAdd.Pos = Level.Tileset.TileAt(mousePos).Pos;
+                    toAdd.Pos = Level.Tileset.TileAt(new Position(mousePos.X, mousePos.Y)).Pos;
                     Level.AddEntity(toAdd);
                 }
-                else if (Level.HasEntityAt(mousePos))
+                else if (Level.HasEntityAt(new Position(mousePos.X, mousePos.Y)))
                 {
-                    if (Level.EntityAt(mousePos).GetType() == typeof(Patroller))
+                    if (Level.EntityAt(new Position(mousePos.X, mousePos.Y)).GetType() == typeof(Patroller))
                     {
-                        _selectedPatroller = Level.EntityAt(mousePos) as Patroller;
+                        _selectedPatroller = Level.EntityAt(new Position(mousePos.X, mousePos.Y)) as Patroller;
                         Renderer.Register(_selectedPatroller);
                     }
                 }
@@ -80,7 +80,7 @@ namespace MyGame
 
             if (SwinGame.MouseClicked(MouseButton.RightButton))
             {
-                if (Level.Tileset.IsAt(SwinGame.MousePosition()))
+                if (Level.Tileset.IsAt(new Position(mousePos.X, mousePos.Y)))
                 {
                 }
             }
@@ -101,7 +101,7 @@ namespace MyGame
                 {
                     if (_selectedPatroller != null && DirectRouteToTile())
                     {
-                        _selectedPatroller.AddTileToPath(TileInteractor.TileAt(SwinGame.MouseX(), SwinGame.MouseY()), Level.Tileset);
+                        _selectedPatroller.AddTileToPath(TileInteractor.TileAt(mousePos.X, mousePos.Y), Level.Tileset);
                     }
                 }
             }
@@ -112,16 +112,16 @@ namespace MyGame
             if (_selectedPatroller.Path.Count == 0)
                 return true;
 
-            if (TileInteractor.Tileset.TileAt(SwinGame.MousePosition()).IsWall)
+            if (TileInteractor.Tileset.TileAt(new Position(SwinGame.MouseX(), SwinGame.MouseY())).IsWall)
                 return false;
             
             int smaller, bigger;
 
-            int newTileCol = (int)TileInteractor.GetTileIndexFromPt(SwinGame.MousePosition()).X;
-            int newTileRow = (int)TileInteractor.GetTileIndexFromPt(SwinGame.MousePosition()).Y;
+            int newTileCol = (int)TileInteractor.GetTileIndexFromPt(new Position(SwinGame.MouseX(), SwinGame.MouseY())).X;
+            int newTileRow = (int)TileInteractor.GetTileIndexFromPt(new Position(SwinGame.MouseX(), SwinGame.MouseY())).Y;
 
-            int linksFromTileCol = (int)TileInteractor.GetTileIndexFromPt(SwinGame.PointAt(_selectedPatroller.Path.Last().AbsPos.X + 1, _selectedPatroller.Path.Last().AbsPos.Y + 1)).X;
-            int linksFromTileRow = (int)TileInteractor.GetTileIndexFromPt(SwinGame.PointAt(_selectedPatroller.Path.Last().AbsPos.X + 1, _selectedPatroller.Path.Last().AbsPos.Y + 1)).Y;
+            int linksFromTileCol = (int)TileInteractor.GetTileIndexFromPt(new Position((_selectedPatroller.Path.Last().AbsPos.X + 1), _selectedPatroller.Path.Last().AbsPos.Y + 1)).X;
+            int linksFromTileRow = (int)TileInteractor.GetTileIndexFromPt(new Position((_selectedPatroller.Path.Last().AbsPos.X + 1), _selectedPatroller.Path.Last().AbsPos.Y + 1)).Y;
 
             if (newTileCol != linksFromTileCol && newTileRow != linksFromTileRow)
             {

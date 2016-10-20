@@ -37,20 +37,21 @@ namespace MyGame
             set {_rows = value;}
         }
 
-        public bool IsAt(Point2D pt)
+        public bool IsAt(Position pt)
         {
-            return SwinGame.PointInRect(pt, AbsPos.X, AbsPos.Y, 
+            return SwinGame.PointInRect(SwinGame.PointAt(pt.X, pt.Y), 
+                                        AbsPos.X, AbsPos.Y, 
                                         Renderer.TILE_SIZE * _cols, 
                                         Renderer.TILE_SIZE * _rows);
         }
 
         public Tile TileAt(float x, float y)
         {
-            return TileAt(SwinGame.PointAt(x, y));
+            return TileAt(new Position(x, y));
         }
 
         //Tile locations are fixed so they can be locate directly and without iteration
-        public Tile TileAt(Point2D pt)
+        public Tile TileAt(Position pt)
         {
             int col = (int)Math.Truncate((pt.X - AbsPos.X) / Renderer.TILE_SIZE);
             int row = (int)Math.Truncate((pt.Y - AbsPos.Y) / Renderer.TILE_SIZE);
@@ -58,22 +59,22 @@ namespace MyGame
             return Tiles[col][row];
         }		
 
-        public Point2D GetTileIndexAt(int col, int row)
+        public Position GetTileIndexAt(int col, int row)
         {
-            return SwinGame.PointAt(_tiles[col][row].Pos.X, _tiles[col][row].Pos.Y);
+            return new Position(_tiles[col][row].Pos.X, _tiles[col][row].Pos.Y);
         }
 
-        public Point2D GetTileIndexFromPt(Point2D pt)
+        public Position GetTileIndexFromPt(Position pt)
         {
             int col = (int)Math.Truncate((pt.X - AbsPos.X) / Renderer.TILE_SIZE);
             int row = (int)Math.Truncate((pt.Y - AbsPos.Y) / Renderer.TILE_SIZE);
 
-            return SwinGame.PointAt(col, row);
+            return new Position(col, row);
         }
 
-        public void ReplaceTileAt(Point2D pt, Tile t)
+        public void ReplaceTileAt(Position pt, Tile t)
         {
-            Point2D index = GetTileIndexFromPt(pt);
+            Position index = GetTileIndexFromPt(pt);
             Tiles[(int)index.X][(int)index.Y] = null; 
             Tiles[(int)index.X][(int)index.Y] = t; 
         }
@@ -135,7 +136,7 @@ namespace MyGame
                 y = i * Renderer.TILE_SIZE;
 
                 newTile = new Tile(this);
-                newTile.Pos = SwinGame.PointAt(x, y);
+                newTile.Pos = new Position(x, y);
 
                 newCol.Add(newTile);
             }
@@ -157,7 +158,7 @@ namespace MyGame
                 y = (Rows - 1) * Renderer.TILE_SIZE;
 
                 newTile = new Tile(this);
-                newTile.Pos = SwinGame.PointAt(x, y);
+                newTile.Pos = new Position(x, y);
 
                 Tiles[i].Add(newTile);
             }

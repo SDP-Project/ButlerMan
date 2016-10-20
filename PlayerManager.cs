@@ -29,17 +29,17 @@ namespace MyGame
             Point2D mousePos = SwinGame.MousePosition();
             if (SwinGame.MouseClicked(MouseButton.LeftButton))
             {
-                if (Level.Tileset.IsAt(mousePos) && !Level.HasEntityAt(mousePos))
+                if (Level.Tileset.IsAt(new Position(mousePos.X, mousePos.Y)) && !Level.HasEntityAt(new Position(mousePos.X, mousePos.Y)))
                 {
                     _holding = new Player();
-                    _holding.Pos = Level.Tileset.TileAt(mousePos).Pos;
+                    _holding.Pos = Level.Tileset.TileAt(new Position(mousePos.X, mousePos.Y)).Pos;
                     Level.AddEntity(_holding);
                 }
             }
 
             if (SwinGame.MouseClicked(MouseButton.RightButton))
             {
-                if (Level.Tileset.IsAt(SwinGame.MousePosition()))
+                if (Level.Tileset.IsAt(new Position(mousePos.X, mousePos.Y)))
                 {
                     if (_holding != null)
                     {

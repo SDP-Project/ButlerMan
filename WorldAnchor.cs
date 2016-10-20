@@ -28,7 +28,7 @@ namespace MyGame
             }
         }
 
-        public override Point2D AbsPos
+        public override Position AbsPos
         {
             get
             {

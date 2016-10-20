@@ -76,50 +76,40 @@ namespace MyGame
 			else if (BoostTime > 1)
 			{
 				BoostTime -= 1;
-				SwinGame.DrawText ((BoostTime/60 + 1).ToString (), Color.Black, 400, 400);
+				//SwinGame.DrawText ((BoostTime/60 + 1).ToString (), Color.Black, 400, 400);
 			}
 		}
 
 		//Pass the amount you want to move in each axis.
 		public void Move(float x, float y)
 		{
-			Point2D tryMove = new Point2D();
-			tryMove.X = x;
-			tryMove.Y = 0;
+			Position tryMove = new Position(x, 0);
 
 			//Horizontal
-			if (!TileInteractor.CollisionAt(SwinGame.AddVectors (AbsPos, tryMove), Width, Height))
+			if (!TileInteractor.CollisionAt(AbsPos.CheckAdd(tryMove), Width, Height))
 			{
-				tryMove.X += Pos.X;
-				tryMove.Y = Pos.Y;
-				Pos = tryMove;
+				Pos.X += tryMove.X;
 			}
 				
 			tryMove.X = 0;
 			tryMove.Y = y;
 
 			//Vertical
-			if (!TileInteractor.CollisionAt (SwinGame.AddVectors (AbsPos, tryMove), Width, Height))
+			if (!TileInteractor.CollisionAt (AbsPos.CheckAdd(tryMove), Width, Height))
 			{
-				tryMove.X = Pos.X;
-				tryMove.Y += Pos.Y;
-				Pos = tryMove;
+                Pos.Y += tryMove.Y;
 			}
 		}
 
 		//Overload which only moves if both directions are free and returns false if they arent.
 		public bool MoveOrCollide(float x, float y)
 		{
-			Point2D tryMove = new Point2D();
+			Position tryMove = new Position(x, y);
 
-			tryMove.X = x;
-			tryMove.Y = y;
-
-			if (!TileInteractor.CollisionAt(SwinGame.AddVectors (AbsPos, tryMove), Width, Height) && !TileInteractor.CollisionAt (SwinGame.AddVectors (AbsPos, tryMove), Width, Height))
+			if (!TileInteractor.CollisionAt(AbsPos.CheckAdd(tryMove), Width, Height) && !TileInteractor.CollisionAt (AbsPos.CheckAdd(tryMove), Width, Height))
 			{
-				tryMove.X += Pos.X;
-				tryMove.Y += Pos.Y;
-				Pos = tryMove;
+                Pos.X += tryMove.X;
+                Pos.Y += tryMove.Y;
 
 				return false;
 			}
