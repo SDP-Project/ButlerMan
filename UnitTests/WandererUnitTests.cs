@@ -43,16 +43,6 @@ namespace UnitTests
         }
 
         [Test]
-        public void TestChangeTargetTile()
-        {
-            w.Pos.Add(new Position(50, 100));
-            w.Direction = Direction.SouthEast;
-            w.TargetTile = w.GetTargetTile();
-
-            Assert.IsNotNull(w.TargetTile);
-        }
-
-        [Test]
         public void MovementTest()
         {
 

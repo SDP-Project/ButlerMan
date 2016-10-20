@@ -17,14 +17,14 @@ namespace MyGame
         {
             _power = power;
 
-            if (_power >= 0)
-            {
-                _color = SwinGame.RGBAColor(0, 255, 0, 80); //Green
-            }
-            else
-            {
-                _color = SwinGame.RGBAColor(255, 0, 0, 80); //Red
-            }
+            //if (_power >= 0)
+            //{
+                //_color = SwinGame.RGBAColor(0, 255, 0, 80); //Green
+           // }
+           // else
+           // {
+          //      _color = SwinGame.RGBAColor(255, 0, 0, 80); //Red
+            //}
         }
 
         public int Power
