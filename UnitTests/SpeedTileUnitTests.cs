@@ -9,11 +9,13 @@ namespace UnitTests
     public class SpeedTileUnitTests
     {
         SpeedTile t;
+        Player p;
 
         [SetUp]
         public void Init()
         {
-            t = new SpeedTile(5);
+            t = new SpeedTile(1);
+            p = new Player();
         }
 
         [Test]
@@ -23,39 +25,30 @@ namespace UnitTests
         }
 
         [Test]
-        public void TestPlayerSpeedUpOnTile()
+        public void TestNegativePower()
         {
+            int power = t.Power;
+            t.Power = -1;
 
+            Assert.AreNotEqual(power, t.Power);
+            Assert.AreEqual(-1, t.Power);
         }
 
         [Test]
-        public void TestPlayerNoSpeedUpOnNoTile()
+        public void TestSpeedsUpPlayer()
         {
-
+            float speed = p.Speed;
+            t.ApplyTileEffect(p);
+            Assert.AreEqual(4.0f, p.MoveSpeed);
         }
 
         [Test]
-        public void TestEnemySpeedUpOnTile()
+        public void TestSlowsDownplayer()
         {
-
-        }
-
-        [Test]
-        public void TestEnemyNoSpeedUpOnNoTile()
-        {
-
-        }
-
-        [Test]
-        public void TestPlayerSlowDownOnTile()
-        {
-
-        }
-
-        [Test]
-        public void TestEnemySlowDownOnTile()
-        {
-
+            float speed = p.Speed;
+            t.Power = -1;
+            t.ApplyTileEffect(p);
+            Assert.AreEqual(2.0f, p.MoveSpeed);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace MyGame
         private int _power;
         private Color _color;
 
-        public SpeedTile(int power) : this (0, WorldAnchor.Instance)
+        public SpeedTile(int power) : this (power, WorldAnchor.Instance)
         {           
         }
 
@@ -30,6 +30,7 @@ namespace MyGame
         public int Power
         {
             get {return _power;}
+            set {_power = value;}
         }
 
         public override void ApplyTileEffect(Player p)
