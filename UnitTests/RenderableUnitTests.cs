@@ -13,6 +13,7 @@ namespace UnitTests
         int y;
         Position p1;
         Position p2;
+        Patroller pat;
         // r;
         //WorldAnchor world = new WorldAnchor();
         //ScreenAnchor screen = new ScreenAnchor();
@@ -27,6 +28,7 @@ namespace UnitTests
 
             p1 = new Position(50, 50);
             p2 = new Position(100, 50);
+            pat = new Patroller();
         }
 
         [Test]
@@ -39,6 +41,12 @@ namespace UnitTests
         public void TestPositionsEqual()
         {
             Assert.AreEqual(p1.Y, p2.Y);
+        }
+
+        [Test]
+        public void TestPatroller()
+        {
+            Assert.AreEqual(pat.GetType(), typeof(Patroller));
         }
 
         [Test]
