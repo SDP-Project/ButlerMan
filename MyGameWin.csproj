@@ -78,6 +78,7 @@
     <Compile Include="UnitTests\SpeedBoostTileUnitTests.cs" />
     <Compile Include="UnitTests\SpeedTileUnitTests.cs" />
     <Compile Include="UnitTests\WandererUnitTests.cs" />
+    <Compile Include="UnitTests\PlayerUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">

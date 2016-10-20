@@ -8,13 +8,17 @@ namespace UnitTests
     [TestFixture]
     public class WandererUnitTests
     {
+        Player p;
         Wanderer w;
         Tileset t;
 
         [SetUp]
         public void Init()
         {
+            p = new Player();
+            p.Pos = new Position(32, 32);
             w = new Wanderer();
+            w.Pos = new Position(0, 0);
             t = new Tileset();
 
             for (int i = 0; i < 10; i++) {
@@ -23,6 +27,15 @@ namespace UnitTests
             }
 
             TileInteractor.Tileset = t;
+        }
+
+        [Test]
+        public void TestMoveRight()
+        {
+            w.Move(1, 0);
+
+            Assert.AreEqual(1, w.Pos.X);
+            Assert.AreEqual(0, w.Pos.Y);
         }
 
         [Test]
