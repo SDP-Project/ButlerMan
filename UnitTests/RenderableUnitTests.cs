@@ -11,6 +11,8 @@ namespace UnitTests
     {
         int x;
         int y;
+        Position p1;
+        Position p2;
         // r;
         //WorldAnchor world = new WorldAnchor();
         //ScreenAnchor screen = new ScreenAnchor();
@@ -22,6 +24,21 @@ namespace UnitTests
             y = 5;
             //OpenGraphicsWindow("Renderable Tests", 800, 600);
             //WorldAnchor.Instance.Pos = PointAt(0, 0);
+
+            p1 = new Position(50, 50);
+            p2 = new Position(100, 50);
+        }
+
+        [Test]
+        public void TestPositionsNotEqual()
+        {
+            Assert.AreNotEqual(p1.X, p2.X);
+        }
+
+        [Test]
+        public void TestPositionsEqual()
+        {
+            Assert.AreEqual(p1.Y, p2.Y);
         }
 
         [Test]
@@ -39,6 +56,7 @@ namespace UnitTests
             Assert.AreNotEqual(five, ten);
         }
 
+        /*
         [Test]
         public void TestPoint2D()
         {

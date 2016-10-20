@@ -1,32 +1,18 @@
 ﻿<Properties StartupItem="MyGameWin.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug-Windows|x86" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
-  <MonoDevelop.Ide.Workbench ActiveDocument="UnitTestsProject\RenderableUnitTests.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="UnitTests\RenderableUnitTests.cs">
     <Files>
-      <File FileName="UnitTestsProject\RenderableUnitTests.cs" Line="16" Column="27" />
-      <File FileName="UnitTestsProject\SpeedBoostTileUnitTests.cs" Line="43" Column="4" />
+      <File FileName="BitmapRenderable.cs" Line="9" Column="9" />
+      <File FileName="UnitTests\RenderableUnitTests.cs" Line="23" Column="55" />
     </Files>
     <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="MyGameWin" expanded="True">
-            <Node name="MyGameWin" expanded="True">
-              <Node name="References" expanded="True" />
-            </Node>
-            <Node name="UnitTestsProject" expanded="True">
-              <Node name="References" expanded="True" />
-              <Node name="lib" expanded="True" />
-              <Node name="RenderableUnitTests.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="MyGameWin" expanded="True">
-            <Node name="UnitTestsProject" selected="True" />
-          </Node>
+          <Node name="MyGameWin" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
