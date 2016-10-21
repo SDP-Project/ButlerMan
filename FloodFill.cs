@@ -42,8 +42,6 @@ namespace MyGame
 
 		public void AddNeighbours (Tile t)
 		{
-			// TODO: Refactor to either spread to all surrounding tiles, including diagonals
-			// OR add below tiles iteratively.
 			AddTile (TileInteractor.TileAt (Direction.North, t.Pos));
 			AddTile (TileInteractor.TileAt (Direction.East, t.Pos));
 			AddTile (TileInteractor.TileAt (Direction.South, t.Pos));
