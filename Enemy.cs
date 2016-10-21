@@ -14,8 +14,8 @@ namespace MyGame
 			Width = 32;
 			Height = 32;
 
-            Img = SwinGame.CreateBitmap(32, 32);
-            SwinGame.ClearSurface(Img, Color.Red);
+            //Img = SwinGame.CreateBitmap(32, 32);
+            //SwinGame.ClearSurface(Img, Color.Red);
         }
 
         public abstract void GetPath();

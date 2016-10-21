@@ -64,7 +64,11 @@ namespace MyGame
                             break;
                         }
                     }
-                   
+                    Bitmap newBmp = SwinGame.CreateBitmap(32, 32);
+                    SwinGame.ClearSurface(newBmp, Color.Red);
+                    SwinGame.ClearSurface(newBmp, Color.Blue);
+
+                    toAdd.Img = newBmp;
                     toAdd.Pos = Level.Tileset.TileAt(new Position(mousePos.X, mousePos.Y)).Pos;
                     Level.AddEntity(toAdd);
                 }

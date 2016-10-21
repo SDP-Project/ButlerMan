@@ -9,7 +9,7 @@ namespace MyGame
         private int _power;
         private Color _color;
 
-        public SpeedTile(int power) : this (0, WorldAnchor.Instance)
+        public SpeedTile(int power) : this (power, WorldAnchor.Instance)
         {           
         }
 
@@ -17,19 +17,20 @@ namespace MyGame
         {
             _power = power;
 
-            if (_power >= 0)
-            {
-                _color = SwinGame.RGBAColor(0, 255, 0, 80); //Green
-            }
-            else
-            {
-                _color = SwinGame.RGBAColor(255, 0, 0, 80); //Red
-            }
+            //if (_power >= 0)
+            //{
+                //_color = SwinGame.RGBAColor(0, 255, 0, 80); //Green
+           // }
+           // else
+           // {
+          //      _color = SwinGame.RGBAColor(255, 0, 0, 80); //Red
+            //}
         }
 
         public int Power
         {
             get {return _power;}
+            set {_power = value;}
         }
 
         public override void ApplyTileEffect(Player p)

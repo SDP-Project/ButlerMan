@@ -38,7 +38,7 @@ namespace MyGame
 				tileY = (int) Math.Truncate(_targetTile.AbsPos.Y);
 			}
 
-            // If AI does not have a target Tile or has reached its target Tile,  get a new one.
+            //If AI does not have a target Tile or has reached its target Tile,  get a new one.
             if (_targetTile == null || (X == tileX && Y == tileY))
 			{
 				GetPath();
