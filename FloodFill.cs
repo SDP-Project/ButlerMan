@@ -22,7 +22,7 @@ namespace MyGame
 			{
 				WaterTile newTile = new WaterTile ();
 				TileInteractor.ReplaceTileAt (t.Pos, newTile);
-				_tiles [newTile] = 0;
+				_tiles [newTile] = 1;
 			}
 		}
 
