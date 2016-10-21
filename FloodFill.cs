@@ -21,7 +21,7 @@ namespace MyGame
 			if (t != null && !t.IsWall && !_tiles.ContainsKey((WaterTile)TileInteractor.TileAt(t.Pos)))
 			{
 				WaterTile newTile = new WaterTile ();
-				TileInteractor.ReplaceTileAt (t.Pos, newTile);
+				TileInteractor.Tileset.ReplaceTileAt (t.Pos, newTile);
 				_tiles [newTile] = 0;
 			}
 		}
@@ -42,8 +42,6 @@ namespace MyGame
 
 		public void AddNeighbours (Tile t)
 		{
-			// TODO: Refactor to either spread to all surrounding tiles, including diagonals
-			// OR add below tiles iteratively.
 			AddTile (TileInteractor.TileAt (Direction.North, t.Pos));
 			AddTile (TileInteractor.TileAt (Direction.East, t.Pos));
 			AddTile (TileInteractor.TileAt (Direction.South, t.Pos));
