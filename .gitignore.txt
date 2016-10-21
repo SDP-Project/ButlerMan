@@ -1,9 +1,0 @@
-.idea/
-bin/
-packages/
-.ci-unit-testing.sh
-obj/
-.vs/
-MyGameWin.userprefs
-MyGameMac.userprefs
-MyGameUnx.userprefs
