@@ -24,6 +24,16 @@ namespace MyGame
 			return Tileset.TileAt(x, y);
         }
 
+		public static void ReplaceTileAt (Position pos, Tile tile)
+		{
+			_tileset.ReplaceTileAt (pos, tile);
+		}
+
+		public static Tile TileAt (Position pos)
+		{
+			return _tileset.TileAt (pos);
+		}
+
         public static Tile TileAt(Direction dir, Position pos)
         {
             if (dir == Direction.North)

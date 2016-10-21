@@ -1,21 +1,18 @@
-﻿<Properties StartupItem="MyGameWin.csproj">
+﻿<Properties StartupConfiguration="{A9DCAC72-BC77-4C33-BE70-BBFD31D7C798}|Default">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug-Windows|x86" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="UnitTests\RenderableUnitTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TileInteractor.cs">
     <Files>
-      <File FileName="BitmapRenderable.cs" Line="9" Column="9" />
-      <File FileName="UnitTests\RenderableUnitTests.cs" Line="23" Column="55" />
+      <File FileName="FloodFill.cs" Line="20" Column="4" />
+      <File FileName="Tile.cs" Line="1" Column="1" />
+      <File FileName="SpeedTile.cs" Line="1" Column="1" />
+      <File FileName="TileInteractor.cs" Line="76" Column="35" NotebookId="1" />
+      <File FileName="WaterTile.cs" Line="8" Column="4" NotebookId="1" />
+      <File FileName="Tileset.cs" Line="67" Column="25" NotebookId="1" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="MyGameWin" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.MyGameWin PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
