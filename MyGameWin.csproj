@@ -80,6 +80,7 @@
     <Compile Include="UnitTests\WandererUnitTests.cs" />
     <Compile Include="FloodFill.cs" />
     <Compile Include="WaterTile.cs" />
+    <Compile Include="EndOfLevelTile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
