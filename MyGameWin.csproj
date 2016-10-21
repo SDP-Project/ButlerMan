@@ -223,6 +223,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Resources\images\DirtyPlate.png" />
+    <None Include="Resources\images\Skull.png" />
+    <None Include="Resources\images\SpeedPowerDown.png" />
+    <None Include="Resources\images\SpeedPowerUp.png" />
   </ItemGroup>
   <Target Name="CopyLibsToOut">
     <Copy SourceFiles="@(WinLibs)" DestinationFolder="$(OutDir)" />
