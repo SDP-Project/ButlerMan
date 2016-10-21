@@ -72,8 +72,6 @@
     <Compile Include="TileManager.cs" />
     <Compile Include="EnemyType.cs" />
     <Compile Include="Patroller.cs" />
-    <Compile Include="UnitTests\RenderableUnitTests.cs" />
-    <Compile Include="UnitTests\RendererUnitTests.cs" />
     <Compile Include="UnitTests\PatrolUnitTests.cs" />
     <Compile Include="UnitTests\SpeedBoostTileUnitTests.cs" />
     <Compile Include="UnitTests\SpeedTileUnitTests.cs" />
@@ -81,6 +79,9 @@
     <Compile Include="FloodFill.cs" />
     <Compile Include="WaterTile.cs" />
     <Compile Include="EndOfLevelTile.cs" />
+    <Compile Include="UnitTests\AARendererUnitTests.cs" />
+    <Compile Include="UnitTests\ARenderableUnitTests.cs" />
+    <Compile Include="UnitTests\PlayerUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
