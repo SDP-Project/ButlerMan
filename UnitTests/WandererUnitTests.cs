@@ -8,17 +8,14 @@ namespace UnitTests
     [TestFixture]
     public class WandererUnitTests
     {
-        Player p;
         Wanderer w;
         Tileset t;
 
         [SetUp]
         public void Init()
         {
-            p = new Player();
-            p.Pos = new Position(32, 32);
             w = new Wanderer();
-            w.Pos = new Position(0, 0);
+            w.Pos = new Position(32, 32);
             t = new Tileset();
 
             for (int i = 0; i < 10; i++) {
@@ -30,19 +27,10 @@ namespace UnitTests
         }
 
         [Test]
-        public void TestMoveRight()
-        {
-            w.Move(1, 0);
-
-            Assert.AreEqual(1, w.Pos.X);
-            Assert.AreEqual(0, w.Pos.Y);
-        }
-
-        [Test]
         public void InitialisationTest()
         {
-            Assert.AreEqual(0, w.Pos.X);
-            Assert.AreEqual(0, w.Pos.Y);
+            Assert.AreEqual(32, w.Pos.X);
+            Assert.AreEqual(32, w.Pos.Y);
         }
 
         [Test]
@@ -51,14 +39,13 @@ namespace UnitTests
         {
             w.Pos.Add(new Position(50, 100));
 
-            Assert.AreEqual(50, w.Pos.X);
-            Assert.AreEqual(100, w.Pos.Y);
+            Assert.AreEqual(82, w.Pos.X);
+            Assert.AreEqual(132, w.Pos.Y);
         }
 
         [Test]
         public void MovementTest()
         {
-
             w.Pos = new Position(200, 200);
             w.Direction = Direction.SouthEast;
             w.TargetTile = TileInteractor.Tileset.Tiles[1][1];

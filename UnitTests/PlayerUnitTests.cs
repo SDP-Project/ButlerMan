@@ -1,4 +1,4 @@
-﻿/*using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
 using SwinGameSDK;
 using MyGame;
@@ -37,26 +37,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void TestMoveLeft()
-
-        {
-            p.Move(-1, 0);
-
-            Assert.AreEqual(31, p.Pos.X);
-            Assert.AreEqual(32, p.Pos.Y);
-        }
-
-        [Test]
         public void TestPlayerPosition()
-        {
-            p.Move(1, 0);
-
-            Assert.AreEqual(33, p.Pos.X);
-            Assert.AreEqual(32, p.Pos.Y);
-        }
-
-        [Test]
-        public void TestMoveRight()
         {
             p.Move(1, 0);
 
@@ -74,12 +55,30 @@ namespace UnitTests
         }
 
         [Test]
+        public void TestMoveRight()
+        {
+            p.Move(1, 0);
+
+            Assert.AreEqual(33, p.Pos.X);
+            Assert.AreEqual(32, p.Pos.Y);
+        }
+
+        [Test]
         public void TestMoveDown()
         {
             p.Move(0, 1);
 
             Assert.AreEqual(32, p.Pos.X);
             Assert.AreEqual(33, p.Pos.Y);
+        }
+
+        [Test]
+        public void TestMoveLeft()
+        {
+            p.Move(-1, 0);
+
+            Assert.AreEqual(31, p.Pos.X);
+            Assert.AreEqual(32, p.Pos.Y);
         }
 
         [Test]
@@ -92,7 +91,8 @@ namespace UnitTests
 
             p.Move(1, 0);
 
-            Assert.AreEqual(oldPos, p.Pos);
+            Assert.AreEqual(oldPos.X, p.Pos.X);
+            Assert.AreEqual(oldPos.Y, p.Pos.Y);
         }
     }
-}*/
+}
