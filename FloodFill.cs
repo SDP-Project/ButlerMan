@@ -21,7 +21,7 @@ namespace MyGame
 			if (t != null && !t.IsWall && !_tiles.ContainsKey((WaterTile)TileInteractor.TileAt(t.Pos)))
 			{
 				WaterTile newTile = new WaterTile ();
-				TileInteractor.Tileset.ReplaceTileAt (t.Pos, newTile);
+				TileInteractor.ReplaceTileAt (t.Pos, newTile);
 				_tiles [newTile] = 0;
 			}
 		}
