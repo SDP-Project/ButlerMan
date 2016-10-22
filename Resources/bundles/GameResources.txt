@@ -1,1 +1,7 @@
 BITMAP,DungeonTileset,Dungeon Tileset.png,32,32,3,3,7
+BITMAP,DirtyPlate,DirtyPlate.png,32,32,1,1,1
+BITMAP,Skull,Skull.png,32,32,1,1,1
+BITMAP,Player,Main Player.png,32,32,1,1,1
+BITMAP,SpeedUp,SpeedPowerUp.png,32,32,1,1,1
+BITMAP,SpeedDown,SpeedPowerDown.png,32,32,1,1,1
+BITMAP,Water,Water.png,32,32,1,1,1

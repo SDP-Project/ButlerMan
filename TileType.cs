@@ -5,7 +5,8 @@ namespace MyGame
     {
         Normal,
         SpeedUp,
-        SpeedDown
+        SpeedDown,
+        Water,
+        EndOfLevel
     }
 }
-

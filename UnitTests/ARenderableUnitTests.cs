@@ -7,7 +7,7 @@ using MyGame;
 namespace UnitTests
 {
     [TestFixture]
-    public class RenderableUnitTests
+    public class ARenderableUnitTests
     {
         Renderable r;
         WorldAnchor world = new WorldAnchor();

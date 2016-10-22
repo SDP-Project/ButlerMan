@@ -8,11 +8,13 @@ namespace MyGame
     {
         private List<Entity> _entities;
         private Tileset _tileset;
+        private List<FloodFill> _floods;
 
         public Level (Tileset tileset)
         {
             _tileset = tileset;
             _entities = new List<Entity>();
+            _floods = new List<FloodFill>();
         }
 
         public List<Entity> Entities
@@ -25,6 +27,17 @@ namespace MyGame
         {
             get {return _tileset;}
             set {_tileset = value;}
+        }
+
+        public List<FloodFill> Floods
+        {
+            get {return _floods;}
+            set {_floods = value;}
+        }
+
+        public void AddFloodFill(FloodFill toAdd)
+        {
+            _floods.Add(toAdd);
         }
 
         public void AddEntity(Entity toAdd)
@@ -59,6 +72,12 @@ namespace MyGame
 
 		public void Step()
         {
+            foreach (FloodFill f in _floods)
+            {
+                f.Increment();
+                f.Expand();
+            }
+
             foreach (Entity e in _entities)
             {
 			    e.Step();

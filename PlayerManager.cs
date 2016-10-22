@@ -31,7 +31,11 @@ namespace MyGame
             {
                 if (Level.Tileset.IsAt(new Position(mousePos.X, mousePos.Y)) && !Level.HasEntityAt(new Position(mousePos.X, mousePos.Y)))
                 {
+                    Bitmap newBmp = SwinGame.CreateBitmap(32, 32);
+                    SwinGame.ClearSurface(newBmp, Color.Green);
+
                     _holding = new Player();
+                    _holding.Img = SwinGame.BitmapNamed("Player");
                     _holding.Pos = Level.Tileset.TileAt(new Position(mousePos.X, mousePos.Y)).Pos;
                     Level.AddEntity(_holding);
                 }

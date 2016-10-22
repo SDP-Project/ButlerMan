@@ -72,14 +72,16 @@
     <Compile Include="TileManager.cs" />
     <Compile Include="EnemyType.cs" />
     <Compile Include="Patroller.cs" />
-    <Compile Include="UnitTests\RenderableUnitTests.cs" />
-    <Compile Include="UnitTests\RendererUnitTests.cs" />
     <Compile Include="UnitTests\PatrolUnitTests.cs" />
     <Compile Include="UnitTests\SpeedBoostTileUnitTests.cs" />
     <Compile Include="UnitTests\SpeedTileUnitTests.cs" />
     <Compile Include="UnitTests\WandererUnitTests.cs" />
     <Compile Include="FloodFill.cs" />
     <Compile Include="WaterTile.cs" />
+    <Compile Include="EndOfLevelTile.cs" />
+    <Compile Include="UnitTests\AARendererUnitTests.cs" />
+    <Compile Include="UnitTests\ARenderableUnitTests.cs" />
+    <Compile Include="UnitTests\PlayerUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
@@ -221,6 +223,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Resources\images\DirtyPlate.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\Skull.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\SpeedPowerDown.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\SpeedPowerUp.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\Water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Target Name="CopyLibsToOut">
     <Copy SourceFiles="@(WinLibs)" DestinationFolder="$(OutDir)" />

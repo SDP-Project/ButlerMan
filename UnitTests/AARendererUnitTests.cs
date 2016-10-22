@@ -5,7 +5,7 @@ using MyGame;
 namespace UnitTests
 {
     [TestFixture]
-    public class RendererUnitTests
+    public class AARendererUnitTests
     {
         Renderable r;
 

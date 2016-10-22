@@ -17,8 +17,8 @@ namespace MyGame
             Speed = 3;
             MoveSpeed = Speed;
 
-			Img = SwinGame.CreateBitmap(32, 32);
-			SwinGame.ClearSurface(Img, Color.Green);
+			//Img = SwinGame.CreateBitmap(32, 32);
+			//SwinGame.ClearSurface(Img, Color.Green);
 		}
 
 		public override void Step()

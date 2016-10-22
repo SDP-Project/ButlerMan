@@ -42,18 +42,23 @@ namespace MyGame
                         case EnemyType.Wanderer:
                         {
                             toAdd = new Wanderer();
+                            toAdd.Img = SwinGame.BitmapNamed("Skull");
                             break;
                         }
 
                         case EnemyType.WallFollower:
                         {
                             toAdd = new WallFollower();
+                            toAdd.Img = SwinGame.BitmapNamed("DirtyPlate");
                             break;
                         }
 
                         case EnemyType.Patroller:
                         {
                             toAdd = new Patroller();
+                            Bitmap newBmp = SwinGame.CreateBitmap(32, 32);
+                            SwinGame.ClearSurface(newBmp, Color.Red);
+                            toAdd.Img = newBmp;
                             _selectedPatroller = toAdd as Patroller;
                             break;
                         }
@@ -64,7 +69,7 @@ namespace MyGame
                             break;
                         }
                     }
-                   
+
                     toAdd.Pos = Level.Tileset.TileAt(new Position(mousePos.X, mousePos.Y)).Pos;
                     Level.AddEntity(toAdd);
                 }
