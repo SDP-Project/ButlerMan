@@ -76,7 +76,9 @@ namespace MyGame
         {
             Position index = GetTileIndexFromPt(pt);
             Tiles[(int)index.X][(int)index.Y] = null; 
-            Tiles[(int)index.X][(int)index.Y] = t; 
+            Tiles[(int)index.X].RemoveAt((int)index.Y);
+
+            Tiles[(int)index.X].Insert((int)index.Y, t); 
         }
 
         //Draws grid showing tile locations - mainly for debugging purposes

@@ -133,14 +133,21 @@ namespace MyGame
                 break;
 
                 case "MyGame.Wanderer": newEntity = new Wanderer();
+                                        newEntity.Img = SwinGame.BitmapNamed("Skull");
                 break;
 
                 case "MyGame.WallFollower": newEntity = new WallFollower();
+                                            newEntity.Img = SwinGame.BitmapNamed("DirtyPlate");
                 break;
 
-                case "MyGame.Patroller": newEntity = new Patroller();
-                break;
-
+                case "MyGame.Patroller": 
+                {
+                    newEntity = new Patroller();
+                    Bitmap newBmp = SwinGame.CreateBitmap(32, 32);
+                    SwinGame.ClearSurface(newBmp, Color.Red);
+                    newEntity.Img = newBmp;
+                    break;
+                }
                 default: throw new InvalidOperationException("Unknown Entity type");
             }
 
