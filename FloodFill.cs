@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using SwinGameSDK;
 
 namespace MyGame
 {
 	public class FloodFill
 	{
-		private Dictionary<WaterTile, int> _tiles;
+        private Dictionary<WaterTile, int> _tiles = new Dictionary<WaterTile, int>();
 		private Tile _source;
 		private static int MAX_WATER_HEIGHT = 100;
 
@@ -21,6 +22,8 @@ namespace MyGame
 			if (t != null && !t.IsWall && !_tiles.ContainsKey((WaterTile)TileInteractor.TileAt(t.Pos)))
 			{
 				WaterTile newTile = new WaterTile ();
+                newTile.Img = SwinGame.BitmapNamed("Water");
+                newTile.Pos = t.Pos;
 				TileInteractor.ReplaceTileAt (t.Pos, newTile);
 				_tiles [newTile] = 0;
 			}

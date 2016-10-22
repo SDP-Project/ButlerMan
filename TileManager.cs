@@ -108,6 +108,22 @@ namespace MyGame
 
         public void HandleInput()
         {
+            if (SwinGame.KeyTyped(KeyCode.RKey))
+            {
+                GameLogic.ActiveLevel.Floods.Clear();
+            }
+
+            if (SwinGame.KeyTyped(KeyCode.FKey))
+            {
+                if (Tileset.IsAt(new Position(SwinGame.MouseX(), SwinGame.MouseY())))
+                {
+                    if (Tileset.TileAt(new Position(SwinGame.MouseX(), SwinGame.MouseY())) as WaterTile != null)
+                    {
+                        GameLogic.ActiveLevel.AddFloodFill(new FloodFill(Tileset.TileAt(new Position(SwinGame.MouseX(), SwinGame.MouseY()))));
+                    }
+                }
+            }
+
             if (SwinGame.KeyTyped(KeyCode.SKey))
             {
                 _placingType++;
@@ -167,6 +183,12 @@ namespace MyGame
             SwinGame.DrawText(_placingType.ToString(), Color.Black, 175, 10);
 
             SwinGame.DrawText("(S) Toggle Tile Type", Color.Black, 10, 25);
+
+            if (_placingType == TileType.Water)
+            {
+                SwinGame.DrawText("(F) Place FloodFill over Water Tile", Color.Black, 10, 40);
+                SwinGame.DrawText("(R) Remove all FloodFills", Color.Black, 10, 55);
+            }
         }
     }
 }
