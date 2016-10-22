@@ -56,9 +56,6 @@ namespace MyGame
                         case EnemyType.Patroller:
                         {
                             toAdd = new Patroller();
-                            Bitmap newBmp = SwinGame.CreateBitmap(32, 32);
-                            SwinGame.ClearSurface(newBmp, Color.Red);
-                            toAdd.Img = newBmp;
                             _selectedPatroller = toAdd as Patroller;
                             break;
                         }
@@ -69,6 +66,9 @@ namespace MyGame
                             break;
                         }
                     }
+                    Bitmap newBmp = SwinGame.CreateBitmap(32, 32); // TODO: These three lines were for testing. Do they need to be removed now?
+                    SwinGame.ClearSurface(newBmp, Color.Red);
+                    SwinGame.ClearSurface(newBmp, Color.Blue);
 
                     toAdd.Pos = Level.Tileset.TileAt(new Position(mousePos.X, mousePos.Y)).Pos;
                     Level.AddEntity(toAdd);
