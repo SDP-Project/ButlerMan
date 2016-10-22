@@ -35,7 +35,7 @@ namespace MyGame
                     SwinGame.ClearSurface(newBmp, Color.Green);
 
                     _holding = new Player();
-                    _holding.Img = newBmp;
+                    _holding.Img = SwinGame.BitmapNamed("Player");
                     _holding.Pos = Level.Tileset.TileAt(new Position(mousePos.X, mousePos.Y)).Pos;
                     Level.AddEntity(_holding);
                 }

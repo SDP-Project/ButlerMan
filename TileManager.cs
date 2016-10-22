@@ -45,6 +45,9 @@ namespace MyGame
                 {
                     newTile = new Tile(tileset);
                     newTile.IsWall = true;
+                    newTile.Img = _bitmaps[_activeBmp];
+                    newTile.RootBitmap = "DungeonTileset";
+                    newTile.RootIndex = _activeBmp;
                     break;
                 }
 
@@ -52,6 +55,7 @@ namespace MyGame
                 {
                     newTile = new SpeedTile(2, tileset);
                     newTile.IsWall = false;
+                    newTile.Img = SwinGame.BitmapNamed("SpeedUp");
                     break;
                 }
 
@@ -59,6 +63,15 @@ namespace MyGame
                 {
                     newTile = new SpeedTile(-2, tileset);
                     newTile.IsWall = false;
+                    newTile.Img = SwinGame.BitmapNamed("SpeedDown");
+                    break;
+                }
+
+                case TileType.Water:
+                {
+                    newTile = new WaterTile();
+                    newTile.IsWall = false;
+                    newTile.Img = SwinGame.BitmapNamed("Water");
                     break;
                 }
 
@@ -71,9 +84,6 @@ namespace MyGame
             }
             tileset.TileAt(pos).Deregister();
             newTile.Pos = tileset.TileAt(pos).Pos;
-            newTile.Img = _bitmaps[_activeBmp];
-            newTile.RootBitmap = "DungeonTileset";
-            newTile.RootIndex = _activeBmp;
 
             tileset.ReplaceTileAt(pos, newTile);
             tileset.Deregister();
@@ -98,11 +108,27 @@ namespace MyGame
 
         public void HandleInput()
         {
+            if (SwinGame.KeyTyped(KeyCode.RKey))
+            {
+                GameLogic.ActiveLevel.Floods.Clear();
+            }
+
+            if (SwinGame.KeyTyped(KeyCode.FKey))
+            {
+                if (Tileset.IsAt(new Position(SwinGame.MouseX(), SwinGame.MouseY())))
+                {
+                    if (Tileset.TileAt(new Position(SwinGame.MouseX(), SwinGame.MouseY())) as WaterTile != null)
+                    {
+                        GameLogic.ActiveLevel.AddFloodFill(new FloodFill(Tileset.TileAt(new Position(SwinGame.MouseX(), SwinGame.MouseY()))));
+                    }
+                }
+            }
+
             if (SwinGame.KeyTyped(KeyCode.SKey))
             {
                 _placingType++;
 
-                if ((int)_placingType > 2)
+                if ((int)_placingType > 4)
                 {
                     _placingType = 0;
                 }
@@ -157,6 +183,12 @@ namespace MyGame
             SwinGame.DrawText(_placingType.ToString(), Color.Black, 175, 10);
 
             SwinGame.DrawText("(S) Toggle Tile Type", Color.Black, 10, 25);
+
+            if (_placingType == TileType.Water)
+            {
+                SwinGame.DrawText("(F) Place FloodFill over Water Tile", Color.Black, 10, 40);
+                SwinGame.DrawText("(R) Remove all FloodFills", Color.Black, 10, 55);
+            }
         }
     }
 }

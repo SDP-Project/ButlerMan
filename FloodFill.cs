@@ -22,8 +22,8 @@ namespace MyGame
 		{
 			if (t != null && !t.IsWall && !_tiles.ContainsKey (TileInteractor.TileAt (t.Pos))) {
 				WaterTile newTile = new WaterTile ();
-				newTile.Img = SwinGame.BitmapNamed ("Water");
-				newTile.Pos = t.Pos;
+                newTile.Img = SwinGame.BitmapNamed("Water");
+                newTile.Pos = t.Pos;
 				TileInteractor.ReplaceTileAt (t.Pos, newTile);
 				_tiles [newTile] = 0;
 			}

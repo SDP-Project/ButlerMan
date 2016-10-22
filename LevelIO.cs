@@ -85,8 +85,17 @@ namespace MyGame
             {
                 int power = Utils.ReadInteger(reader);
                 result = new SpeedTile(power, anchor);
+                if (power > 0)
+                    result.Img = SwinGame.BitmapNamed("SpeedUp");
+                else
+                    result.Img = SwinGame.BitmapNamed("SpeedDown");
             }
-            else
+            else if (type == "MyGame.WaterTile")
+            {
+                result = new WaterTile(anchor);
+                result.Img = SwinGame.BitmapNamed("Water");
+            }
+            else //Is normal Tile
             {
                 result = new Tile(anchor);
             }
@@ -98,10 +107,13 @@ namespace MyGame
 
             string rootBitmap = reader.ReadLine();
             int rootIndex = Utils.ReadInteger(reader);
-      
-            result.Img = GameResources.GetBitmap(rootBitmap, rootIndex);
 
-            result.IsWall = (rootBitmap != "nullBmp" && result as SpeedTile == null);
+            if (type == "MyGame.Tile")
+            {
+                result.Img = GameResources.GetBitmap(rootBitmap, rootIndex);
+            }
+
+            result.IsWall = (rootBitmap != "nullBmp" && (result as SpeedTile == null && result as WaterTile == null));
 
             result.RootBitmap = rootBitmap;
             result.RootIndex = rootIndex;
@@ -130,17 +142,25 @@ namespace MyGame
             switch (entityType)
             {
                 case "MyGame.Player": newEntity = new Player();
+                                      newEntity.Img = SwinGame.BitmapNamed("Player");
                 break;
 
                 case "MyGame.Wanderer": newEntity = new Wanderer();
+                                        newEntity.Img = SwinGame.BitmapNamed("Skull");
                 break;
 
                 case "MyGame.WallFollower": newEntity = new WallFollower();
+                                            newEntity.Img = SwinGame.BitmapNamed("DirtyPlate");
                 break;
 
-                case "MyGame.Patroller": newEntity = new Patroller();
-                break;
-
+                case "MyGame.Patroller": 
+                {
+                    newEntity = new Patroller();
+                    Bitmap newBmp = SwinGame.CreateBitmap(32, 32);
+                    SwinGame.ClearSurface(newBmp, Color.Red);
+                    newEntity.Img = newBmp;
+                    break;
+                }
                 default: throw new InvalidOperationException("Unknown Entity type");
             }
 
