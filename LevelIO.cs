@@ -142,6 +142,7 @@ namespace MyGame
             switch (entityType)
             {
                 case "MyGame.Player": newEntity = new Player();
+                                      newEntity.Img = SwinGame.BitmapNamed("Player");
                 break;
 
                 case "MyGame.Wanderer": newEntity = new Wanderer();
