@@ -45,24 +45,25 @@ namespace MyGame
                 {
                     newTile = new Tile(tileset);
                     newTile.IsWall = true;
+                    newTile.Img = _bitmaps[_activeBmp];
+                    newTile.RootBitmap = "DungeonTileset";
+                    newTile.RootIndex = _activeBmp;
                     break;
                 }
 
                 case TileType.SpeedUp:
                 {
-                    SpeedTile speedTile = new SpeedTile(2, tileset);
-                    speedTile.Color = SwinGame.RGBAColor(0, 255, 0, 80);
-                    speedTile.IsWall = false;
-                    newTile = speedTile;
+                    newTile = new SpeedTile(2, tileset);
+                    newTile.IsWall = false;
+                    newTile.Img = SwinGame.BitmapNamed("SpeedUp");
                     break;
                 }
 
                 case TileType.SpeedDown:
                 {
-                    SpeedTile speedTile = new SpeedTile(-2, tileset);
-                    speedTile.Color = SwinGame.RGBAColor(255, 0, 0, 80);
-                    speedTile.IsWall = false;
-                    newTile = speedTile;
+                    newTile = new SpeedTile(-2, tileset);
+                    newTile.IsWall = false;
+                    newTile.Img = SwinGame.BitmapNamed("SpeedDown");
                     break;
                 }
 
@@ -75,9 +76,6 @@ namespace MyGame
             }
             tileset.TileAt(pos).Deregister();
             newTile.Pos = tileset.TileAt(pos).Pos;
-            newTile.Img = _bitmaps[_activeBmp];
-            newTile.RootBitmap = "DungeonTileset";
-            newTile.RootIndex = _activeBmp;
 
             tileset.ReplaceTileAt(pos, newTile);
             tileset.Deregister();
@@ -106,7 +104,7 @@ namespace MyGame
             {
                 _placingType++;
 
-                if ((int)_placingType > 2)
+                if ((int)_placingType > 4)
                 {
                     _placingType = 0;
                 }

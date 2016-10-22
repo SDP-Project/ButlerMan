@@ -85,6 +85,10 @@ namespace MyGame
             {
                 int power = Utils.ReadInteger(reader);
                 result = new SpeedTile(power, anchor);
+                if (power > 0)
+                    result.Img = SwinGame.BitmapNamed("SpeedUp");
+                else
+                    result.Img = SwinGame.BitmapNamed("SpeedDown");
             }
             else
             {
@@ -98,8 +102,11 @@ namespace MyGame
 
             string rootBitmap = reader.ReadLine();
             int rootIndex = Utils.ReadInteger(reader);
-      
-            result.Img = GameResources.GetBitmap(rootBitmap, rootIndex);
+
+            if (type == "MyGame.Tile")
+            {
+                result.Img = GameResources.GetBitmap(rootBitmap, rootIndex);
+            }
 
             result.IsWall = (rootBitmap != "nullBmp" && result as SpeedTile == null);
 
