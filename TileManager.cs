@@ -50,15 +50,19 @@ namespace MyGame
 
                 case TileType.SpeedUp:
                 {
-                    newTile = new SpeedTile(2, tileset);
-                    newTile.IsWall = false;
+                    SpeedTile speedTile = new SpeedTile(2, tileset);
+                    speedTile.Color = SwinGame.RGBAColor(0, 255, 0, 80);
+                    speedTile.IsWall = false;
+                    newTile = speedTile;
                     break;
                 }
 
                 case TileType.SpeedDown:
                 {
-                    newTile = new SpeedTile(-2, tileset);
-                    newTile.IsWall = false;
+                    SpeedTile speedTile = new SpeedTile(-2, tileset);
+                    speedTile.Color = SwinGame.RGBAColor(255, 0, 0, 80);
+                    speedTile.IsWall = false;
+                    newTile = speedTile;
                     break;
                 }
 
