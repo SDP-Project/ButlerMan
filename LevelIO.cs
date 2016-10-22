@@ -90,7 +90,12 @@ namespace MyGame
                 else
                     result.Img = SwinGame.BitmapNamed("SpeedDown");
             }
-            else
+            else if (type == "MyGame.WaterTile")
+            {
+                result = new WaterTile(anchor);
+                result.Img = SwinGame.BitmapNamed("Water");
+            }
+            else //Is normal Tile
             {
                 result = new Tile(anchor);
             }
@@ -108,7 +113,7 @@ namespace MyGame
                 result.Img = GameResources.GetBitmap(rootBitmap, rootIndex);
             }
 
-            result.IsWall = (rootBitmap != "nullBmp" && result as SpeedTile == null);
+            result.IsWall = (rootBitmap != "nullBmp" && (result as SpeedTile == null && result as WaterTile == null));
 
             result.RootBitmap = rootBitmap;
             result.RootIndex = rootIndex;

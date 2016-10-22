@@ -67,6 +67,14 @@ namespace MyGame
                     break;
                 }
 
+                case TileType.Water:
+                {
+                    newTile = new WaterTile();
+                    newTile.IsWall = false;
+                    newTile.Img = SwinGame.BitmapNamed("Water");
+                    break;
+                }
+
                 default:
                 {
                     newTile = new Tile(tileset);
