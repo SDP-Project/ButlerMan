@@ -56,7 +56,7 @@ namespace MyGame
             int col = (int)Math.Truncate((pt.X - AbsPos.X) / Renderer.TILE_SIZE);
             int row = (int)Math.Truncate((pt.Y - AbsPos.Y) / Renderer.TILE_SIZE);
 
-            return Tiles[col][row];
+             return Tiles[col][row];
         }		
 
         public Position GetTileIndexAt(int col, int row)
