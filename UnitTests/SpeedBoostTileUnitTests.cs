@@ -1,4 +1,4 @@
-﻿/*using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
 using MyGame;
 
@@ -7,37 +7,38 @@ namespace UnitTests
     [TestFixture]
     public class SpeedBoostTileUnitTests
     {
-        SpeedBoostTile s;
+        SpeedTile s;
+        Player p;
 
         [SetUp]
         public void Init()
         {
-            s = new SpeedBoostTile();
+            s = new SpeedTile(1);
+            p = new Player();
         }
 
         [Test]
-        public void TestContainsSpeedBoost()
+        public void TestSpeedsUpPlayer()
         {
+            Assert.AreEqual(3, p.MoveSpeed);
+            s.ApplyTileEffect(p);
+            Assert.AreEqual(4, p.MoveSpeed);
         }
 
         [Test]
-        public void TestSpeedUpPlayer()
-        {}
+        public void TestSlowsDownPlayer()
+        {
+            s.Power = -1;
+
+            Assert.AreEqual(3, p.MoveSpeed);
+            s.ApplyTileEffect(p);
+            Assert.AreEqual(2, p.MoveSpeed);
+        }
 
         [Test]
-        public void TestNoSpeedUpPlayer()
-        {}
-
-        [Test]
-        public void TestSpeedUpEnemy()
-        {}
-
-        [Test]
-        public void TestNoSpeedUpEnemy()
-        {}
-
-        [Test]
-        public void TestIsTile()
-        {}
+        public void TestIsATile()
+        {
+            Assert.IsNotNull(s as Tile);
+        }
     }
-}*/
+}

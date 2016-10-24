@@ -94,5 +94,23 @@ namespace UnitTests
             Assert.AreEqual(oldPos.X, p.Pos.X);
             Assert.AreEqual(oldPos.Y, p.Pos.Y);
         }
+
+        [Test]
+        public void TestSpeedBoost()
+        {
+            Assert.AreEqual(3, p.MoveSpeed);
+            p.StartBoost(2, 5);
+
+            Assert.AreEqual(8, p.MoveSpeed);
+        }
+
+        [Test]
+        public void TestSpeedDown()
+        {
+            Assert.AreEqual(3, p.MoveSpeed);
+            p.StartBoost(2, -1);
+
+            Assert.AreEqual(2, p.MoveSpeed);
+        }
     }
 }
