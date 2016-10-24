@@ -88,7 +88,9 @@ namespace MyGame
 			//Horizontal
 			if (!TileInteractor.CollisionAt(AbsPos.CheckAdd(tryMove), Width, Height))
 			{
-				Pos.X += tryMove.X;
+                tryMove.X += Pos.X;
+                tryMove.Y = Pos.Y;
+                Pos = tryMove;
 			}
 				
 			tryMove.X = 0;
@@ -97,7 +99,9 @@ namespace MyGame
 			//Vertical
 			if (!TileInteractor.CollisionAt (AbsPos.CheckAdd(tryMove), Width, Height))
 			{
-                Pos.Y += tryMove.Y;
+                tryMove.X = Pos.X;
+                tryMove.Y += Pos.Y;
+                Pos = tryMove;
 			}
 		}
 
@@ -108,8 +112,9 @@ namespace MyGame
 
 			if (!TileInteractor.CollisionAt(AbsPos.CheckAdd(tryMove), Width, Height) && !TileInteractor.CollisionAt (AbsPos.CheckAdd(tryMove), Width, Height))
 			{
-                Pos.X += tryMove.X;
-                Pos.Y += tryMove.Y;
+                tryMove.X += Pos.X;
+                tryMove.Y += Pos.Y;
+                Pos = tryMove;
 
 				return false;
 			}
