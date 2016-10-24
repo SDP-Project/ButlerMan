@@ -85,36 +85,70 @@ namespace MyGame
 		{
 			Position tryMove = new Position(x, 0);
 
-			//Horizontal
+			//If there is a Horizontal collision
 			if (!TileInteractor.CollisionAt(AbsPos.CheckAdd(tryMove), Width, Height))
 			{
                 tryMove.X += Pos.X;
                 tryMove.Y = Pos.Y;
-                Pos = tryMove;
+
+                Pos.X = tryMove.X;
+                Pos.Y = tryMove.Y;
 			}
+            else //Move one pixel towards the wall if possible
+            {
+                float moveX = 0;
+
+                if (x > 0)
+                    moveX = 1;
+                else if (x < 0)
+                    moveX = -1;
+
+                if (!TileInteractor.CollisionAt(AbsPos.CheckAdd(new Position(moveX, 0)), Width, Height))
+                {
+                    Pos.X += moveX;
+                }
+            }
 				
 			tryMove.X = 0;
 			tryMove.Y = y;
 
-			//Vertical
+			//If there is a Vertical collision
 			if (!TileInteractor.CollisionAt (AbsPos.CheckAdd(tryMove), Width, Height))
 			{
                 tryMove.X = Pos.X;
                 tryMove.Y += Pos.Y;
-                Pos = tryMove;
+
+                Pos.X = tryMove.X;
+                Pos.Y = tryMove.Y;
 			}
+            else //Move one pixel towards the wall if possible
+            {
+                float moveY = 0;
+
+                if (y > 0)
+                    moveY = 1;
+                else if (y < 0)
+                    moveY = -1;
+
+                if (!TileInteractor.CollisionAt(AbsPos.CheckAdd(new Position(0, moveY)), Width, Height))
+                {
+                    Pos.Y += moveY;
+                }
+            }
 		}
 
 		//Overload which only moves if both directions are free and returns false if they arent.
 		public bool MoveOrCollide(float x, float y)
 		{
-			Position tryMove = new Position(x, y);
+            Position tryMove = new Position(x, y);
 
 			if (!TileInteractor.CollisionAt(AbsPos.CheckAdd(tryMove), Width, Height) && !TileInteractor.CollisionAt (AbsPos.CheckAdd(tryMove), Width, Height))
 			{
                 tryMove.X += Pos.X;
                 tryMove.Y += Pos.Y;
-                Pos = tryMove;
+
+                Pos.X = tryMove.X;
+                Pos.Y = tryMove.Y;
 
 				return false;
 			}

@@ -7,6 +7,10 @@ namespace MyGame
         private float _x;
         private float _y;
 
+        public Position() : this(0, 0)
+        {
+        }
+
         public Position(float x, float y)
         {
             _x = x;
