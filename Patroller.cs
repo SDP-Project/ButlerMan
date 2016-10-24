@@ -17,6 +17,11 @@ namespace MyGame
             _targetNode = 0;
         }
 
+        public Tile TargetTile
+        {
+            get {return _targetTile;}
+        }
+
         public List<Tile> Path
         {
             get {return _path;}
