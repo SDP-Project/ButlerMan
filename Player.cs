@@ -5,6 +5,8 @@ namespace MyGame
 {
 	public class Player : Entity
 	{
+        private static int MAX_BREATH = 180;
+        private int _currentBreath;
 
 		public Player() : this (WorldAnchor.Instance)
 		{}
@@ -16,10 +18,17 @@ namespace MyGame
 			Height = 32;
             Speed = 3;
             MoveSpeed = Speed;
+            _currentBreath = MAX_BREATH;
 
 			//Img = SwinGame.CreateBitmap(32, 32);
 			//SwinGame.ClearSurface(Img, Color.Green);
 		}
+
+        public int CurrentBreath
+        {
+            get {return _currentBreath;}
+            set {_currentBreath = value;}
+        }
 
 		public override void Step()
 		{
@@ -52,6 +61,7 @@ namespace MyGame
 			{
 				StartBoost (5, 1);
 			}
+
 			if (SwinGame.KeyTyped (KeyCode.CtrlKey))
 			{
 				SpeedBoost (0);
@@ -61,7 +71,20 @@ namespace MyGame
             /// Currently applies Tile effect every frame. Consider optimising to have Player existing on a Tile rather
             /// than having to fetch a new tile (sometimes the same one) every frame?
             /// </summary>
-             TileInteractor.TileAt(AbsPos.X + (Height / 2), AbsPos.Y + (Width / 2)).ApplyTileEffect(this);
+            TileInteractor.TileAt(AbsPos.X + (Height / 2), AbsPos.Y + (Width / 2)).ApplyTileEffect(this);
+            Tile t = TileInteractor.TileAt(AbsPos.X + (Height / 2), AbsPos.Y + (Width / 2));
+
+            if (!(t.GetType() == typeof(WaterTile)))
+            {
+                t.ApplyTileEffect(this);
+
+                if (CurrentBreath < MAX_BREATH)
+                    CurrentBreath++;
+            }
+            else
+            {
+                CurrentBreath--;
+            }
 		}
 
 		public void SpeedBoost(int Boost)
@@ -74,6 +97,11 @@ namespace MyGame
 			BoostTime = 60 * Duration;
 			SpeedBoost (Boost);
 		}
+
+        public override void Render()
+        {
+            base.Render();
+            SwinGame.DrawText(CurrentBreath.ToString(), Color.Black, 100, 100);
+        }
 	}
 }
-

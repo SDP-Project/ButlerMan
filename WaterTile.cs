@@ -11,5 +11,10 @@ namespace MyGame
         public WaterTile(Renderable anchor) : base(anchor)
         {
         }
+
+        public override void ApplyTileEffect(Player p)
+        {
+            p.CurrentBreath--;
+        }
 	}
 }
