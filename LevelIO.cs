@@ -156,9 +156,7 @@ namespace MyGame
                 case "MyGame.Patroller": 
                 {
                     newEntity = new Patroller();
-                    Bitmap newBmp = SwinGame.CreateBitmap(32, 32);
-                    SwinGame.ClearSurface(newBmp, Color.Red);
-                    newEntity.Img = newBmp;
+                    newEntity.Img = SwinGame.BitmapNamed("RedKnight");
                     break;
                 }
                 default: throw new InvalidOperationException("Unknown Entity type");

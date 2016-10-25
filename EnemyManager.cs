@@ -56,6 +56,7 @@ namespace MyGame
                         case EnemyType.Patroller:
                         {
                             toAdd = new Patroller();
+                            toAdd.Img = SwinGame.BitmapNamed("RedKnight");
                             _selectedPatroller = toAdd as Patroller;
                             break;
                         }

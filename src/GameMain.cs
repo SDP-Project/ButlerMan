@@ -8,7 +8,7 @@ namespace MyGame
     {
         public static void Main()
         {
-            SwinGame.LoadResourceBundleNamed("GameResources", "GameResources.txt", false);
+                SwinGame.LoadResourceBundleNamed("GameResources", "GameResources.txt", false);
             WorldAnchor world = new WorldAnchor();
             ScreenAnchor screen = new ScreenAnchor();
 
