@@ -20,7 +20,7 @@ namespace MyGame
 
 		public void AddTile (Tile t)
 		{
-			if (t != null && !t.IsWall && !_tiles.ContainsKey (TileInteractor.TileAt (t.Pos))) {
+			if (ValidTile(t)) {
 				WaterTile newTile = new WaterTile ();
                 newTile.Img = SwinGame.BitmapNamed("Water");
                 newTile.Pos = t.Pos;
@@ -28,6 +28,13 @@ namespace MyGame
 				_tiles [newTile] = 0;
 			}
 		}
+
+	    public bool ValidTile(Tile t)
+	    {
+	        return t != null && !t.IsWall &&
+	               !_tiles.ContainsKey(TileInteractor.TileAt(t.Pos) && t.GetType() != typeof(SpeedTile) &&
+	                                   t.GetType() != typeof(EndOfLevelTile));
+	    }
 
 		public void Increment ()
 		{
