@@ -112,5 +112,17 @@ namespace UnitTests
 
             Assert.AreEqual(2, p.MoveSpeed);
         }
+
+        [Test]
+        public void TestBreathGoesDown()
+        {}
+
+        [Test]
+        public void TestBreathGoesUp()
+        {}
+
+        [Test]
+        public void TestDiesWhenOutOfBreath()
+        {}
     }
 }

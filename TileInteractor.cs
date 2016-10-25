@@ -39,9 +39,9 @@ namespace MyGame
             if (dir == Direction.North)
                 return _tileset.TileAt(pos.X, pos.Y - 1);
             else if (dir == Direction.East)
-                return _tileset.TileAt(pos.X + 1, pos.Y);
+                return _tileset.TileAt(pos.X + Renderer.TILE_SIZE + 1, pos.Y);
             else if (dir == Direction.South)
-                return _tileset.TileAt(pos.X, pos.Y + 1);
+                return _tileset.TileAt(pos.X, pos.Y + Renderer.TILE_SIZE + 1);
             else
                 return _tileset.TileAt(pos.X - 1, pos.Y);
         }

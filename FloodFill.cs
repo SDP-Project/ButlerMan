@@ -7,9 +7,9 @@ namespace MyGame
 {
 	public class FloodFill
 	{
-		private Dictionary<Tile, Double> _tiles = new Dictionary<Tile, Double> ();
+		private Dictionary<Tile, int> _tiles = new Dictionary<Tile, int> ();
 		private Tile _source;
-		private static Double MAX_WATER_HEIGHT = Double.MaxValue;
+		private static int MAX_WATER_HEIGHT = 180;
 
 		public FloodFill (Tile source)
 		{
@@ -39,7 +39,7 @@ namespace MyGame
 		public void Expand ()
 		{
 			foreach (Tile key in _tiles.Keys.ToList ())
-				if (_tiles [key] < MAX_WATER_HEIGHT)
+				if (_tiles [key] == MAX_WATER_HEIGHT)
 					AddNeighbours (key);
 		}
 
@@ -57,7 +57,7 @@ namespace MyGame
 			get { return _source; }
 		}
 
-		public Dictionary<Tile, Double> Tiles {
+		public Dictionary<Tile, int> Tiles {
 			get { return _tiles; }
 			set { _tiles = value; }
 		}
