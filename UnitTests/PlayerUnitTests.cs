@@ -115,14 +115,32 @@ namespace UnitTests
 
         [Test]
         public void TestBreathGoesDown()
-        {}
+        {
+            t.Tiles[1][1] = new WaterTile();
+            Assert.AreEqual(180, p.CurrentBreath);
+            p.Step();
+            Assert.AreEqual(179, p.CurrentBreath);
+        }
 
         [Test]
         public void TestBreathGoesUp()
-        {}
+        {
+            t.Tiles[1][1] = new WaterTile();
+            Assert.AreEqual(180, p.CurrentBreath);
+            p.Step();
+            Assert.AreEqual(179, p.CurrentBreath);
+            p.Pos.X += 32;
+            p.Pos.Y += 32;
+            p.Step();
+            Assert.AreEqual(180, p.CurrentBreath);
+        }
 
         [Test]
-        public void TestDiesWhenOutOfBreath()
-        {}
+        public void TestBreathStopsAtMax()
+        {
+            Assert.AreEqual(180, p.CurrentBreath);
+            p.Step();
+            Assert.AreEqual(180, p.CurrentBreath);
+        }
     }
 }

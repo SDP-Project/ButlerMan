@@ -14,7 +14,6 @@ namespace MyGame
 
         public override void ApplyTileEffect(Player p)
         {
-            p.CurrentBreath--;
         }
 	}
 }
