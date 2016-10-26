@@ -9,6 +9,7 @@ namespace MyGame
     {
         public static void LoadAllLevels()
         {
+            GameLogic.Levels.Clear();
             StreamReader readLevelCount = new StreamReader("Resources/level.txt");
             int numLevels = Utils.ReadInteger(readLevelCount);
             readLevelCount.Close();
@@ -36,6 +37,7 @@ namespace MyGame
             StreamReader levelPath = new StreamReader("Resources/Level" + index + ".txt");
             Tileset newTileset = LoadTileset(levelPath);
             Level newLevel = new Level(newTileset);
+            newLevel.Floods = LoadFloods(newLevel, levelPath);
             newLevel.Entities = LoadEntities(levelPath, newTileset);
             newLevel.Deregister();
             levelPath.Close();
@@ -201,8 +203,40 @@ namespace MyGame
         {
             StreamWriter levelPath = new StreamWriter("Resources/Level" + index + ".txt");
             SaveTileset(toSave.Tileset, levelPath);
+            SaveFloods(toSave, levelPath);
             SaveEntities(levelPath, toSave.Entities, toSave.Tileset);
+
             levelPath.Close();
+        }
+
+        private static void SaveFloods(Level level, StreamWriter writer)
+        {
+            writer.WriteLine(level.Floods.Count);
+
+            foreach (FloodFill f in level.Floods)
+            {
+                writer.WriteLine(f.Source.Pos.X);
+                writer.WriteLine(f.Source.Pos.Y);
+            }
+        }
+
+        private static List<FloodFill> LoadFloods(Level level, StreamReader reader)
+        {
+            int numFloods = Utils.ReadInteger(reader);
+            float x, y;
+
+            List<FloodFill> result = new List<FloodFill>();
+
+            for (int i = 0; i < numFloods; i++)
+            {
+                x = Utils.ReadInteger(reader);
+                y = Utils.ReadInteger(reader);
+
+                Tile source = level.Tileset.TileAt(x + 1, y + 1);
+
+                result.Add(new FloodFill(source));
+            }
+            return result;
         }
 
         private static void SaveTileset(Tileset toSave, StreamWriter writer)

@@ -34,22 +34,20 @@ namespace MyGame
                 //Clear the screen and draw the framerate
                 SwinGame.ClearScreen(Color.White);
 
-                if (SwinGame.KeyTyped(KeyCode.MKey))
-                {
-                    LevelIO.SaveAllLevels();
-                }
-
                 if (SwinGame.KeyTyped(KeyCode.SpaceKey))
                 {
                     if (gameState == GameState.InGame)
                     {
                         gameState = GameState.EditLevel;
+                        LevelIO.LoadAllLevels();
+                        GameLogic.ActiveLevel = GameLogic.Levels[0];
                         LevelEditor.Instance.Register();
 
                     }
                     else
                     {
                         gameState = GameState.InGame;
+                        LevelIO.SaveAllLevels();
                         GameLogic.ActiveLevel.Deregister();
                         GameLogic.ActiveLevel.Register();
                         LevelEditor.Instance.Deregister();
@@ -70,7 +68,6 @@ namespace MyGame
 
                 SwinGame.RefreshScreen(60);
             }
-            LevelIO.SaveAllLevels();
         }
     }
 }

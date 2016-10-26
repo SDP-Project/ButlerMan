@@ -9,12 +9,19 @@ namespace MyGame
         private List<Entity> _entities;
         private Tileset _tileset;
         private List<FloodFill> _floods;
+        private Player _player;
 
         public Level (Tileset tileset)
         {
             _tileset = tileset;
             _entities = new List<Entity>();
             _floods = new List<FloodFill>();
+        }
+
+        public Player Player
+        {
+            get {return _player;}
+            set {_player = value;}
         }
 
         public List<Entity> Entities
@@ -43,6 +50,11 @@ namespace MyGame
         public void AddEntity(Entity toAdd)
         {
             _entities.Add(toAdd);
+
+            if (toAdd as Player != null)
+            {
+                _player = toAdd;
+            }
         }
 			
         public Entity EntityAt(Position pt)
