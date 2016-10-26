@@ -44,7 +44,12 @@ namespace MyGame
                 case TileType.Normal:
                 {
                     newTile = new Tile(tileset);
-                    newTile.IsWall = true;
+
+                    if (_activeBmp == 0 || _activeBmp == 1 || _activeBmp == 4 || _activeBmp == 5 || _activeBmp == 6)
+                        newTile.IsWall = true;
+                    else
+                        newTile.IsWall = false;
+                    
                     newTile.Img = _bitmaps[_activeBmp];
                     newTile.RootBitmap = "DungeonTileset";
                     newTile.RootIndex = _activeBmp;

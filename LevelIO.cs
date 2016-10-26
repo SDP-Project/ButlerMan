@@ -80,6 +80,7 @@ namespace MyGame
         {
             Tile result;
             string type = reader.ReadLine();
+            string wall = reader.ReadLine();
 
             if (type == "MyGame.SpeedTile")
             {
@@ -113,7 +114,15 @@ namespace MyGame
                 result.Img = GameResources.GetBitmap(rootBitmap, rootIndex);
             }
 
-            result.IsWall = (rootBitmap != "nullBmp" && (result as SpeedTile == null && result as WaterTile == null));
+            if (wall == "True")
+            {
+                result.IsWall = true;
+            }
+            else
+            {
+                result.IsWall = false;
+            }
+
 
             result.RootBitmap = rootBitmap;
             result.RootIndex = rootIndex;
@@ -215,6 +224,8 @@ namespace MyGame
         private static void SaveTile(Tile toSave, StreamWriter writer)
         {
             writer.WriteLine(toSave.GetType());
+
+            writer.WriteLine(toSave.IsWall);
 
             if (toSave.GetType() == typeof(SpeedTile))
             {

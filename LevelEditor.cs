@@ -92,7 +92,7 @@ namespace MyGame
             /// <summary>
             /// Move Camera
             /// </summary>
-            if (SwinGame.KeyDown(KeyCode.LeftKey))
+            /*if (SwinGame.KeyDown(KeyCode.LeftKey))
             {
                 WorldAnchor.Instance.Pos.X += 1;
             }
@@ -110,7 +110,7 @@ namespace MyGame
             if (SwinGame.KeyDown(KeyCode.DownKey))
             {
                 WorldAnchor.Instance.Pos.Y -= 1;
-            }
+            }*/
             /// <summary>
             /// End Move Camera
             /// </summary>
