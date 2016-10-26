@@ -48,6 +48,8 @@ namespace MyGame
                     else
                     {
                         gameState = GameState.InGame;
+                        GameLogic.ActiveLevel.Deregister();
+                        GameLogic.ActiveLevel.Register();
                         LevelEditor.Instance.Deregister();
                     }
                 }
