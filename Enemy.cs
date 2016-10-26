@@ -17,10 +17,14 @@ namespace MyGame
 
         public bool CollidingWithPlayer()
         {
-            Player player = GameLogic.Player;
-            Rectangle enemyRect = SwinGame.CreateRectangle(Pos.X, Pos.Y, Width, Height);
-            Rectangle playerRect = SwinGame.CreateRectangle(player.Pos.X, player.Pos.Y, player.Width, player.Height);
-            return SwinGame.RectanglesIntersect(enemyRect, playerRect);
+            if (GameLogic.Player != null)
+            {
+                Player player = GameLogic.Player;
+                Rectangle enemyRect = SwinGame.CreateRectangle(Pos.X, Pos.Y, Width, Height);
+                Rectangle playerRect = SwinGame.CreateRectangle(player.Pos.X, player.Pos.Y, player.Width, player.Height);
+                return SwinGame.RectanglesIntersect(enemyRect, playerRect);
+            }
+            return false;
         }
 
         public abstract void GetPath();

@@ -80,6 +80,16 @@ namespace MyGame
                     break;
                 }
 
+                case TileType.EndOfLevel:
+                {
+                    newTile = new EndOfLevelTile();
+                    newTile.IsWall = false;
+                    Bitmap newBmp = SwinGame.CreateBitmap(32, 32);
+                    SwinGame.ClearSurface(newBmp, Color.Orange);
+                    newTile.Img = newBmp;
+                    break;
+                }
+
                 default:
                 {
                     newTile = new Tile(tileset);
@@ -101,7 +111,9 @@ namespace MyGame
             {
                 foreach (FloodFill f in GameLogic.ActiveLevel.Floods)
                 {
-                    f.Source.Img = null;
+                    f.Source.Deregister();
+                    f.Source = null;
+
                 }
                 GameLogic.ActiveLevel.Floods.Clear();
             }

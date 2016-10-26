@@ -99,6 +99,13 @@ namespace MyGame
                 result = new WaterTile(anchor);
                 result.Img = SwinGame.BitmapNamed("Water");
             }
+            else if (type == "MyGame.EndOfLevelTile")
+            {
+                result = new EndOfLevelTile(anchor);
+                Bitmap newBmp = SwinGame.CreateBitmap(32, 32);
+                SwinGame.ClearSurface(newBmp, Color.Orange);
+                result.Img = newBmp;
+            }
             else //Is normal Tile
             {
                 result = new Tile(anchor);
@@ -233,9 +240,7 @@ namespace MyGame
                 x = Utils.ReadInteger(reader);
                 y = Utils.ReadInteger(reader);
 
-                Tile source = level.Tileset.TileAt(x + 1, y + 1);
-
-                result.Add(new FloodFill(source));
+                result.Add(new FloodFill(level.Tileset.TileAt(x + 1, y + 1)));
             }
             return result;
         }

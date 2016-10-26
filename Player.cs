@@ -110,12 +110,11 @@ namespace MyGame
             if (GameMain.gameState == GameState.InGame)
             {
                 float pixelsPerBreath = (float)114 / (float)MAX_BREATH;
-                SwinGame.DrawText(pixelsPerBreath.ToString(), Color.Black, 100, 400);
                 SwinGame.DrawBitmap(SwinGame.BitmapNamed("StatusBar"), 50, 5);
                 SwinGame.FillRectangle(Color.Turquoise, 57, 7, pixelsPerBreath * CurrentBreath, 12);
             }
            
-            SwinGame.DrawText("Failed Errands: " + GameLogic.deaths, Color.Black, 500, 5);
+            SwinGame.DrawText("Failed Errands: " + GameLogic.deaths, Color.White, 500, 5);
         }
 	}
 }

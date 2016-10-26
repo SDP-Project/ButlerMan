@@ -40,17 +40,31 @@ namespace MyGame
                     {
                         gameState = GameState.EditLevel;
                         LevelIO.LoadAllLevels();
+                        foreach (Level l in GameLogic.Levels)
+                        {
+                            l.Deregister();
+                        }
                         GameLogic.ActiveLevel = GameLogic.Levels[0];
+                        GameLogic.ActiveLevel.Register();
                         LevelEditor.Instance.Register();
-
+                        LevelEditor.Instance.Level = GameLogic.ActiveLevel;
+                        TileInteractor.Tileset = GameLogic.ActiveLevel.Tileset;
                     }
                     else
                     {
                         gameState = GameState.InGame;
                         LevelIO.SaveAllLevels();
-                        GameLogic.ActiveLevel.Deregister();
+
+                        foreach (Level l in GameLogic.Levels)
+                        {
+                            l.Deregister();
+                        }
+
+                        GameLogic.ActiveLevel = GameLogic.Levels[0];
                         GameLogic.ActiveLevel.Register();
                         LevelEditor.Instance.Deregister();
+                        LevelEditor.Instance.Level = GameLogic.ActiveLevel;
+                        TileInteractor.Tileset = GameLogic.ActiveLevel.Tileset;
                     }
                 }
 

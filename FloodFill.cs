@@ -9,7 +9,7 @@ namespace MyGame
 	{
 		private Dictionary<Tile, int> _tiles = new Dictionary<Tile, int> ();
 		private Tile _source;
-		private static int MAX_WATER_HEIGHT = 180;
+		private static int MAX_WATER_HEIGHT = 60;
 
 		public FloodFill (Tile source)
 		{
@@ -52,8 +52,10 @@ namespace MyGame
 			AddTile (TileInteractor.TileAt (Direction.West, t.Pos));
 		}
 
-		public Tile Source {
+		public Tile Source 
+        {
 			get { return _source; }
+            set {_source = value;}
 		}
 
 		public Dictionary<Tile, int> Tiles {

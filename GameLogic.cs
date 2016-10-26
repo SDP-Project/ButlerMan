@@ -25,7 +25,13 @@ namespace MyGame
         public static void NextLevel()
         {
             int currentLevel = Levels.IndexOf(ActiveLevel);
-            ActiveLevel.Deregister();
+
+            foreach (Level l in Levels)
+            {
+                l.Deregister();
+            }
+
+            LevelIO.LoadAllLevels();
 
             if (currentLevel == Levels.Count - 1) // Wrap back to first level
             {
@@ -68,7 +74,7 @@ namespace MyGame
             }
 
             ActiveLevel = toAdd;
-            ActiveLevel.Register();
+            //ActiveLevel.Register();
             LevelEditor.Instance.Level = ActiveLevel;
             TileInteractor.Tileset = ActiveLevel.Tileset;
         }

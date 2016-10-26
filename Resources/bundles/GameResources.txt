@@ -7,3 +7,4 @@ BITMAP,SpeedDown,SpeedPowerDown.png,32,32,1,1,1
 BITMAP,Water,Water.png,32,32,1,1,1
 BITMAP,RedKnight,RedKnight.png,32,32,1,1,1
 BITMAP,StatusBar,StatusBarBorder.png,128,16,1,1,1
+BITMAP,MoistTowel,Towel.png,32,32,1,1,1
