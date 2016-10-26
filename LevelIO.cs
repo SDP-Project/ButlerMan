@@ -36,6 +36,7 @@ namespace MyGame
         {
             StreamReader levelPath = new StreamReader("Resources/Level" + index + ".txt");
             Tileset newTileset = LoadTileset(levelPath);
+            TileInteractor.Tileset = newTileset;
             Level newLevel = new Level(newTileset);
             newLevel.Floods = LoadFloods(newLevel, levelPath);
             newLevel.Entities = LoadEntities(levelPath, newTileset);

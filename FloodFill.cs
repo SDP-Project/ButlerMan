@@ -13,8 +13,7 @@ namespace MyGame
 
 		public FloodFill (Tile source)
 		{
-			_source = source;
-
+            _source = source;
 			AddTile (source);
 		}
 

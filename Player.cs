@@ -84,6 +84,11 @@ namespace MyGame
             else
             {
                 CurrentBreath--;
+                if (CurrentBreath <= 0)
+                {
+                    GameLogic.deaths++;
+                    LevelIO.LoadAllLevels();
+                }
             }
 		}
 
