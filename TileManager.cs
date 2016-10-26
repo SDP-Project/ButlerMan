@@ -92,6 +92,15 @@ namespace MyGame
 
         public void Remove(Tileset tileset, Position pos)
         {
+            if (tileset.TileAt(pos).GetType() == typeof(WaterTile))
+            {
+                foreach (FloodFill f in GameLogic.ActiveLevel.Floods)
+                {
+                    f.Source.Img = null;
+                }
+                GameLogic.ActiveLevel.Floods.Clear();
+            }
+
             tileset.TileAt(pos).Deregister();
 
             Tile newTile = new Tile();
