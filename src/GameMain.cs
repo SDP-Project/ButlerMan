@@ -6,6 +6,8 @@ namespace MyGame
 {
     public class GameMain
     {
+        public static GameState gameState;
+
         public static void Main()
         {
                 SwinGame.LoadResourceBundleNamed("GameResources", "GameResources.txt", false);
@@ -17,7 +19,7 @@ namespace MyGame
 
             GameResources.LoadResources();
 
-            GameState gameState = GameState.InGame;
+            gameState = GameState.InGame;
             GameLogic gameLogic = new GameLogic();
 
             LevelIO.LoadAllLevels();

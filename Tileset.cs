@@ -84,15 +84,18 @@ namespace MyGame
         //Draws grid showing tile locations - mainly for debugging purposes
         public override void Render()
         {
-            foreach (List<Tile> list in _tiles)
+            if (GameMain.gameState == GameState.EditLevel)
             {
-                foreach (Tile t in list)
+                foreach (List<Tile> list in _tiles)
                 {
-                    SwinGame.DrawRectangle(Color.Black, 
+                    foreach (Tile t in list)
+                    {
+                        SwinGame.DrawRectangle(Color.Black, 
                                            t.AbsPos.X, 
                                            t.AbsPos.Y, 
                                            Renderer.TILE_SIZE, 
                                            Renderer.TILE_SIZE);
+                    }
                 }
             }
         }
