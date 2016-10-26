@@ -110,7 +110,7 @@ namespace MyGame
                 SwinGame.FillRectangle(Color.Turquoise, 57, 7, pixelsPerBreath * CurrentBreath, 12);
             }
            
-            SwinGame.DrawText(CurrentBreath.ToString(), Color.Black, 100, 100);
+            SwinGame.DrawText("Failed Errands: " + GameLogic.deaths, Color.Black, 500, 5);
         }
 	}
 }

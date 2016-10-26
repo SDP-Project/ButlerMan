@@ -15,6 +15,14 @@ namespace MyGame
 			Height = 32;
         }
 
+        public bool CollidingWithPlayer()
+        {
+            Player player = GameLogic.Player;
+            Rectangle enemyRect = SwinGame.CreateRectangle(Pos.X, Pos.Y, Width, Height);
+            Rectangle playerRect = SwinGame.CreateRectangle(player.Pos.X, player.Pos.Y, player.Width, player.Height);
+            return SwinGame.RectanglesIntersect(enemyRect, playerRect);
+        }
+
         public abstract void GetPath();
 
         /// <summary>
@@ -23,6 +31,12 @@ namespace MyGame
         /// </summary>
 		public bool MoveToTile(Tile tile)
         {
+            if (CollidingWithPlayer())
+            {
+                GameLogic.deaths++;
+                LevelIO.LoadAllLevels();
+                return false;
+            }
 			bool collision;
 			int x;
 			int y;

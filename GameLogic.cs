@@ -9,11 +9,17 @@ namespace MyGame
     {
         public static List<Level> Levels = new List<Level>();
         public static Level ActiveLevel;
+        public static int deaths = 0;
 
         public GameLogic ()
         {
             LevelEditor levelEditor = new LevelEditor();
             LevelEditor.Instance.Deregister();
+        }
+
+        public static Player Player
+        {
+            get {return ActiveLevel.Player;}
         }
 
         public static void NextLevel()

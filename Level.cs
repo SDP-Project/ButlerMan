@@ -53,7 +53,7 @@ namespace MyGame
 
             if (toAdd as Player != null)
             {
-                _player = toAdd;
+                _player = toAdd as Player;
             }
         }
 			
@@ -84,6 +84,15 @@ namespace MyGame
 
 		public void Step()
         {
+            if (_player == null)
+            {
+                foreach (Entity e in _entities)
+                {
+                    if (e as Player != null)
+                        _player = e as Player;
+                }
+            }
+
             foreach (FloodFill f in _floods)
             {
                 f.Increment();
